@@ -480,6 +480,30 @@ Ninguno</rem:comments>
 permitir registrar un cliente nuevo</rem:description>
 </rem:nonFunctionalRequirement>
 <rem:nonFunctionalRequirement
+ oid = "NFR-0005">
+<rem:name>
+Registrar Vehiculo</rem:name>
+<rem:version>
+<rem:major>1</rem:major>
+<rem:minor>0</rem:minor>
+<rem:date>
+<rem:year>2023</rem:year>
+<rem:month>9</rem:month>
+<rem:day>3</rem:day>
+</rem:date>
+</rem:version>
+<rem:authors stakeholders ="STK-0001 STK-0002 STK-0003 "/>
+<rem:sources stakeholders ="STK-0001 STK-0002 STK-0003 "/>
+<rem:comments>
+Ninguno</rem:comments>
+<rem:importance value = "IMV-0004"/>
+<rem:urgency value = "URV-0003"/>
+<rem:status value = "STV-0003"/>
+<rem:stability value = "SBV-0003"/>
+<rem:description>
+permitir registrar un vehiculo nuevo</rem:description>
+</rem:nonFunctionalRequirement>
+<rem:nonFunctionalRequirement
  oid = "NFR-0003">
 <rem:name>
 Visualizar Espacios Disponibles</rem:name>
@@ -599,6 +623,9 @@ Ninguno
 Ninguno
 </rem:comments>
 </rem:changeRequestsSpecification>
+<rem:trace source = "NFR-0005"  target = "OBJ-0002" >
+<rem:isChecked/>
+</rem:trace>
 <rem:trace source = "FRQ-0003"  target = "FRQ-0002" >
 <rem:isChecked/>
 </rem:trace>
