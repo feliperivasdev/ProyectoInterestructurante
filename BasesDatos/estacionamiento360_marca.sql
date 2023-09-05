@@ -16,36 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `marca`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `marca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
-  `id_Usuario` int NOT NULL AUTO_INCREMENT,
-  `name_User` varchar(45) NOT NULL,
-  `id_Vehicle` int NOT NULL,
-  `address` varchar(60) NOT NULL,
-  `id_Telefono` int NOT NULL,
-  `id_Email` int NOT NULL,
-  PRIMARY KEY (`id_Usuario`),
-  KEY `usuario-vehiculo_idx` (`id_Vehicle`),
-  KEY `usuario-telefono_idx` (`id_Telefono`),
-  KEY `usuario-correo_idx` (`id_Email`),
-  CONSTRAINT `usuario-correo` FOREIGN KEY (`id_Email`) REFERENCES `correos` (`id_Correo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `usuario-telefono` FOREIGN KEY (`id_Telefono`) REFERENCES `telefonos` (`id_Telefono`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `usuario-vehiculo` FOREIGN KEY (`id_Vehicle`) REFERENCES `vehiculo` (`id_vehiculo`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `marca` (
+  `id_Marca` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_Marca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `marca`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `marca` WRITE;
+/*!40000 ALTER TABLE `marca` DISABLE KEYS */;
+/*!40000 ALTER TABLE `marca` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

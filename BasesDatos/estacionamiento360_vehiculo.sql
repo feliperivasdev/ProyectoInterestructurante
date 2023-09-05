@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `estacionamiento360` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `estacionamiento360`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: estacionamiento360
@@ -28,9 +26,12 @@ CREATE TABLE `vehiculo` (
   `id_vehiculo` int NOT NULL AUTO_INCREMENT,
   `plate` varchar(45) NOT NULL,
   `id_Place` int NOT NULL,
+  `id_Tipo_Vehiculo` int NOT NULL,
   PRIMARY KEY (`id_vehiculo`),
   KEY `vehiculo-espacio_idx` (`id_Place`),
-  CONSTRAINT `vehiculo-espacio` FOREIGN KEY (`id_Place`) REFERENCES `espacio` (`id_place`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `vehiculo-tipo_idx` (`id_Tipo_Vehiculo`),
+  CONSTRAINT `vehiculo-espacio` FOREIGN KEY (`id_Place`) REFERENCES `espacio` (`id_place`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vehiculo-tipo` FOREIGN KEY (`id_Tipo_Vehiculo`) REFERENCES `tipo_vehiculo` (`id_Tipo_Vehiculo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-03 22:15:19
+-- Dump completed on 2023-09-04 20:59:12
