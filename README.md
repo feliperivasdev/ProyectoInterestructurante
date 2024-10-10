@@ -1,44 +1,50 @@
 # ProyectoInterestructurante
 
  ## Idea Inicial
-Diseño de un aplicativo que registre los datos del consumo de energía de acuerdo a las actividades realizadas en casa y bajo un modelo de predicción, se pueda generar un reporte que indique el periodo de mayor consumo.
+Diseño de un aplicativo que registre los datos del consumo de energía de acuerdo a las actividades realizadas en casa y bajo un modelo de predicción, se pueda generar un reporte que indique el período de mayor consumo. 
 
-## Historias de Usuario Existentes
+El sistema permitirá el registro de electrodomésticos con sus características eléctricas (voltaje, corriente, potencia), asociando el consumo a las actividades realizadas en el hogar. Los usuarios podrán ver reportes semanales, recibir alertas y notificaciones, y utilizar predicciones para gestionar su consumo de manera eficiente. La aplicación utilizará un backend en Express, con protección JWT para autenticación, y un frontend en Angular con protección de rutas.
 
-| Título                                  | Historia de Usuario                                                                                                                                                            | Prioridad |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Notificaciones y alertas**             | Como usuario, necesito recibir notificaciones cuando mi consumo de energía está por encima del promedio esperado, para tomar medidas inmediatas y evitar gastos innecesarios.      | Alta      |
-| **Resumen semanal del consumo**          | Como usuario, necesito visualizar un resumen semanal del consumo de energía clasificado por actividad, para entender cuáles actividades contribuyen más a mi gasto energético.      | Alta      |
-| **Registro de electrodomésticos**        | Como usuario, necesito registrar todos los electrodomésticos en mi hogar incluyendo su consumo de energía, para llevar un control de mi gasto energético.                          | Alta      |
-| **Predecir el período de mayor consumo** | Como usuario, necesito tener un reporte predictivo sobre el período en que el consumo de energía será más alto, para planificar mi consumo y reducir el uso de energía.            | Alta      |
-| **Alerta de uso prolongado**             | Como usuario, necesito recibir una alerta cuando un electrodoméstico ha estado en uso durante un tiempo prolongado, para evitar consumo excesivo y prevenir posibles daños.         | Media     |
-| **Comparación de consumo entre meses**   | Como usuario, necesito comparar mi consumo energético de un mes con respecto a meses anteriores, para visualizar si he reducido o aumentado mi consumo de energía.                 | Baja      |
-| **Registro de nuevos usuarios**          | Como usuario nuevo, necesito registrarme proporcionando mis datos personales, para crear una cuenta y acceder a la aplicación.                                                    | Alta      |
-| **Autenticación de usuario**             | Como usuario registrado, necesito iniciar sesión con mi identificación o correo electrónico y contraseña, para acceder a mi cuenta de manera segura.                             | Alta      |
-| **Restablecimiento de contraseña**       | Como usuario que ha olvidado su contraseña, necesito restablecerla a través de mi correo electrónico, para recuperar el acceso a mi cuenta.                                      | Media     |
-| **Actualización de perfil**              | Como usuario registrado, necesito poder actualizar mi información personal, como nombre, correo electrónico o dirección, para mantener mis datos actualizados.                    | Baja      |
+## Historias de Usuario
 
-## Nuevas Historias de Usuario para la Creación de la Base de Datos
+### Orden de Desarrollo de Historias de Usuario
 
-| Título                                  | Historia de Usuario                                                                                                                                                          | Prioridad |
-|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Creación de base de datos**            | Como desarrollador, necesito crear una base de datos que almacene la información de los usuarios, electrodomésticos y datos de consumo energético, para estructurar correctamente la aplicación. | Alta      |
-| **Almacenamiento de datos históricos**   | Como usuario, necesito que el sistema almacene mi consumo de energía histórico, para generar reportes y predicciones precisas.                                                   | Alta      |
-| **Optimización de consultas**            | Como desarrollador, necesito optimizar las consultas a la base de datos, para garantizar que los reportes de consumo energético se generen de forma rápida y eficiente.          | Media     |
-| **Relación entre electrodomésticos y actividades** | Como usuario, necesito relacionar los electrodomésticos con las actividades en el hogar, para poder clasificar mi consumo de energía correctamente.                             | Alta      |
+| Título                                  | Historia de Usuario                                                                                                                                                            |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Creación de base de datos**           | Como desarrollador, necesito crear una base de datos que almacene la información de usuarios, electrodomésticos y datos de consumo energético, para que la aplicación pueda funcionar correctamente. |
+| **Desarrollo del backend en Express**   | Como desarrollador, necesito implementar el backend utilizando Express para manejar la lógica de negocio, el almacenamiento de datos y la seguridad, incluyendo encriptación de contraseñas y generación de JWT. |
+| **Registro de nuevos usuarios**         | Como usuario nuevo, necesito registrarme proporcionando mis datos personales, para crear una cuenta en el sistema con encriptación de contraseñas.                              |
+| **Autenticación de usuario con JWT**    | Como usuario registrado, necesito iniciar sesión con mi identificación o correo electrónico y contraseña, para recibir un JWT que me permita acceder de manera segura a mi cuenta. |
+| **Protección de rutas en Angular**      | Como usuario, necesito que el sistema me impida acceder a ciertas rutas si no estoy autenticado, para garantizar la seguridad de la aplicación.                                   |
+| **Registro de electrodomésticos**       | Como usuario, necesito registrar electrodomésticos en mi hogar, proporcionando información como foto, marca, voltaje, corriente y potencia, para llevar un control del consumo de energía. |
+| **Visualización de resumen semanal**    | Como usuario, necesito visualizar un resumen semanal del consumo de energía clasificado por actividad, para entender cuáles actividades contribuyen más a mi gasto energético.     |
+| **Predecir el período de mayor consumo**| Como usuario, necesito tener un reporte predictivo sobre el período en que el consumo de energía será más alto, para planificar mi consumo y reducir el uso de energía.           |
+| **Notificaciones y alertas**            | Como usuario, necesito recibir notificaciones cuando mi consumo de energía está por encima del promedio esperado, para tomar medidas inmediatas y evitar gastos innecesarios.      |
+| **Almacenamiento de datos históricos**  | Como usuario, necesito que el sistema almacene mi consumo energético histórico, para generar reportes y predicciones precisas.                                                   |
+| **Alerta de uso prolongado**            | Como usuario, necesito recibir una alerta cuando un electrodoméstico ha estado en uso durante un tiempo prolongado, para evitar consumo excesivo y prevenir posibles daños.        |
+| **Actualización de perfil**             | Como usuario registrado, necesito poder actualizar mi información personal, como nombre, correo electrónico o dirección, para mantener mis datos actualizados.                    |
 
-## Otras Historias de Usuario Recomendadas
+### Nuevas Historias de Usuario para el Frontend en Angular y Seguridad
 
-| Título                                  | Historia de Usuario                                                                                                                                                            | Prioridad |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Configuración de alertas personalizadas** | Como usuario, necesito configurar alertas personalizadas sobre el consumo de energía de ciertos electrodomésticos, para adaptarlas a mis necesidades específicas.                  | Media     |
-| **Panel de administración**              | Como administrador, necesito acceder a un panel de control donde pueda gestionar usuarios, electrodomésticos y reportes de consumo, para asegurar el buen funcionamiento del sistema. | Alta      |
-| **Exportar reportes**                    | Como usuario, necesito poder exportar los reportes de consumo energético en formatos como PDF o Excel, para poder analizarlos de manera más detallada.                           | Media     |
+| Título                                  | Historia de Usuario                                                                                                                                                            |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Creación del frontend en Angular**    | Como desarrollador, necesito crear el frontend utilizando Angular, con una interfaz intuitiva que permita a los usuarios registrarse, iniciar sesión y visualizar su consumo de energía. |
+| **Protección de rutas por rol**         | Como usuario administrador, necesito que el sistema me permita acceder a rutas específicas que no están disponibles para otros roles, para que pueda gestionar la plataforma correctamente. |
+| **Encriptación de contraseñas**         | Como desarrollador, necesito implementar la encriptación de contraseñas en el backend utilizando Express y bcrypt, para garantizar la seguridad de los datos de los usuarios.     |
+| **Autenticación basada en JWT**         | Como desarrollador, necesito implementar la autenticación con JWT en Express para que el frontend pueda verificar si los usuarios están autenticados antes de acceder a rutas protegidas. |
 
-## Alcance del Producto Mínimo Viable (PMV)
+## Modelo de Predicción
 
-1. Registro de usuarios y autenticación.
-2. Registro de electrodomésticos.
-3. Visualización de consumo.
-4. Predicción de consumo.
-5. Creación de la base de datos.
+### Modelo Propuesto
+Se recomienda utilizar un modelo de **Regresión Lineal** o **ARIMA (AutoRegressive Integrated Moving Average)** para predecir el consumo energético. Estos modelos pueden captar patrones temporales y tendencias en el consumo de energía, permitiendo generar predicciones precisas.
+
+### Datos Mínimos Necesarios para el Modelo de Predicción
+
+1. **Fecha y hora**: Para capturar patrones temporales.
+2. **Consumo energético**: Datos históricos del consumo de cada electrodoméstico.
+3. **Electrodoméstico**: Identificación del dispositivo asociado a cada registro de consumo.
+4. **Uso por actividad**: Relación entre el uso de los electrodomésticos y la actividad en el hogar.
+5. **Número de personas en el hogar**: Información sobre la cantidad de personas que usan los dispositivos, lo que podría influir en el consumo.
+
+Este modelo es ideal para el PMV, dado que el ingreso de datos es manual y no hay una gran cantidad de datos disponibles inicialmente.
+
