@@ -1,4 +1,4 @@
-# ProyectoInterestructurante
+# Proyecto Interestructurante
 
  ## Idea Inicial
 Diseño de un aplicativo que registre los datos del consumo de energía de acuerdo a las actividades realizadas en casa y bajo un modelo de predicción, se pueda generar un reporte que indique el período de mayor consumo. 
