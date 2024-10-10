@@ -3,140 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Tracker</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f7;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+
+        .dashboard {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100vw;
         }
+
+        .sidebar {
+            background: linear-gradient(to bottom, #4c1b75, #9a499e);
+            width: 250px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
+
+        .header input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
         }
-        .nav {
-            display: flex;
-            gap: 20px;
-        }
-        .nav a {
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 18px;
-        }
-        .dashboard {
-            margin-top: 20px;
+
+        .grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-top: 20px;
         }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
         .chart {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
         }
-        .sidebar {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .sidebar h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 18px;
-        }
-        .overview, .statistics, .devices {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .statistics {
+
+        .metrics {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            margin-top: 20px;
         }
-        .statistics div {
+
+        .metrics .metric {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
+            flex: 1;
+            margin: 0 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>Energy Tracker</h1>
-            <div class="nav">
-                <a href="#">Home</a>
-                <a href="#">Reports</a>
-                <a href="#">Settings</a>
-            </div>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>User Name</h2>
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Logout</a></li>
+            </ul>
         </div>
 
-        <!-- Dashboard -->
-        <div class="dashboard">
-            <!-- Main content -->
-            <div>
-                <!-- Energy Consumption Overview -->
-                <div class="chart overview">
-                    <h2>Energy Consumption Overview</h2>
-                    <img src="chart_placeholder.png" alt="Energy Consumption Chart" width="100%">
-                </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>Dashboard Overview</h2>
+                <input type="text" placeholder="Search...">
+            </div>
 
-                <!-- Statistics -->
-                <div class="statistics">
-                    <div>
-                        <h3>25 kWh</h3>
-                        <p>Today</p>
-                    </div>
-                    <div>
-                        <h3>30%</h3>
-                        <p>Battery Usage</p>
-                    </div>
-                    <div>
-                        <h3>89%</h3>
-                        <p>Efficiency</p>
-                    </div>
+            <!-- Charts Grid -->
+            <div class="grid">
+                <div class="card">
+                    <h3>Pie Chart</h3>
+                    <div class="chart" id="pieChart"></div>
+                </div>
+                <div class="card">
+                    <h3>Bar Chart</h3>
+                    <div class="chart" id="barChart"></div>
+                </div>
+                <div class="card">
+                    <h3>Years Projection</h3>
+                    <div class="chart" id="yearsProjection"></div>
+                </div>
+                <div class="card">
+                    <h3>Additional Stats</h3>
+                    <div class="chart" id="additionalStats"></div>
                 </div>
             </div>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="#">Register Device</a></li>
-                    <li><a href="#">View Devices</a></li>
-                    <li><a href="#">Predictions</a></li>
-                    <li><a href="#">Settings</a></li>
-                </ul>
+            <!-- Metrics -->
+            <div class="metrics">
+                <div class="metric">
+                    <h4>12,567</h4>
+                    <p>Ullamcorper</p>
+                </div>
+                <div class="metric">
+                    <h4>15,837</h4>
+                    <p>Integer</p>
+                </div>
+                <div class="metric">
+                    <h4>9,433</h4>
+                    <p>Tempor</p>
+                </div>
             </div>
+
+            <!-- More Charts or Data -->
+            <div class="grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>70% Usage</h3>
+                    <div class="chart" id="usageChart"></div>
+                </div>
+                <div class="card">
+                    <h3>50% Availability</h3>
+                    <div class="chart" id="availabilityChart"></div>
+                </div>
+                <div class="card">
+                    <h3>Calendar</h3>
+                    <div class="chart" id="calendar"></div>
+                </div>
+            </div>
+
         </div>
     </div>
 
