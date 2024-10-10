@@ -49,7 +49,8 @@ Se recomienda utilizar un modelo de **Regresión Lineal** o **ARIMA (AutoRegress
 Este modelo es ideal para el PMV, dado que el ingreso de datos es manual y no hay una gran cantidad de datos disponibles inicialmente.
 
 ### Mocup web
-![2799752](https://github.com/user-attachments/assets/58a75fa6-029b-4657-959b-6155b4e3d351)
+![2799752](https://github.com/user-attachments/assets/66bedd99-86ee-4051-9308-b890c705ffae)
+
 
 
 
