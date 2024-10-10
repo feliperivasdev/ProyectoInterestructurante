@@ -49,6 +49,8 @@ Se recomienda utilizar un modelo de **Regresión Lineal** o **ARIMA (AutoRegress
 Este modelo es ideal para el PMV, dado que el ingreso de datos es manual y no hay una gran cantidad de datos disponibles inicialmente.
 
 ### Mocup web
+![DALL·E-2024-10-10-16 15 42-A-clean-web-mockup-for-an-energy-consumption-tracking-app](https://github.com/user-attachments/assets/c7d50e5e-a851-46c9-95a8-e47644ad650f)
+
 
 
 
