@@ -51,6 +51,10 @@ Este modelo es ideal para el PMV, dado que el ingreso de datos es manual y no ha
 ### Mocup web
 ![2799752](https://github.com/user-attachments/assets/66bedd99-86ee-4051-9308-b890c705ffae)
 
+### Modelo Entidad Relación
+![Diagram 1](https://github.com/user-attachments/assets/fccb0444-0011-4c63-90ad-57e623cf0926)
+
+
 
 
 
