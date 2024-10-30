@@ -3,8 +3,18 @@
  ## Idea Inicial
 Diseño de un aplicativo que registre los datos del consumo de energía de acuerdo a las actividades realizadas en casa y bajo un modelo de predicción, se pueda generar un reporte que indique el período de mayor consumo. 
 
-El sistema permitirá el registro de electrodomésticos con sus características eléctricas (voltaje, corriente, potencia), asociando el consumo a las actividades realizadas en el hogar. Los usuarios podrán ver reportes semanales, recibir alertas y notificaciones, y utilizar predicciones para gestionar su consumo de manera eficiente. La aplicación utilizará un backend en Express, con protección JWT para autenticación, y un frontend en Angular con protección de rutas.
+## Tecnologías Usadas
+- Base de Datos: Supabase para el almacenamiento de información de usuarios, electrodomésticos, y datos históricos de consumo energético.
 
+- Framework Frontend: Angular para el desarrollo de una interfaz intuitiva y dinámica, que permita a los usuarios registrarse, iniciar sesión, y acceder a reportes detallados de consumo energético.
+
+- Framework Backend: Express en Node.js para la creación de una API segura que gestione la lógica de negocio y la autenticación basada en JWT.
+
+
+
+El sistema permitirá el registro de electrodomésticos con sus características eléctricas (voltaje, corriente, potencia), asociando el consumo a las actividades realizadas en el hogar. Los usuarios podrán ver reportes semanales, recibir alertas y notificaciones, y utilizar predicciones para gestionar su consumo de manera eficiente. La aplicación utilizará un backend en Express, con protección JWT para autenticación, y un frontend en Angular con protección de rutas.
+  # La recolección de datos se hara mediante el siguiente formulario
+  - Formulario => https://forms.gle/UerTyHWJV8zt9y1R9
 ## Historias de Usuario
 
 ### Orden de Desarrollo de Historias de Usuario
