@@ -19,34 +19,32 @@ El sistema permitirá el registro de electrodomésticos con sus características
 
 ### Orden de Desarrollo de Historias de Usuario
 
-| Título                                  | Historia de Usuario                                                                                                                                                            |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Creación de base de datos**           | Como desarrollador, necesito crear una base de datos que almacene la información de usuarios, electrodomésticos y datos de consumo energético, para que la aplicación pueda funcionar correctamente. |
-| **Desarrollo del backend en Express**   | Como desarrollador, necesito implementar el backend utilizando Express para manejar la lógica de negocio, el almacenamiento de datos y la seguridad, incluyendo encriptación de contraseñas y generación de JWT. |
-| **Registro de nuevos usuarios**         | Como usuario nuevo, necesito registrarme proporcionando mis datos personales, para crear una cuenta en el sistema con encriptación de contraseñas.                              |
-| **Autenticación de usuario con JWT**    | Como usuario registrado, necesito iniciar sesión con mi identificación o correo electrónico y contraseña, para recibir un JWT que me permita acceder de manera segura a mi cuenta. |
-| **Protección de rutas en Angular**      | Como usuario, necesito que el sistema me impida acceder a ciertas rutas si no estoy autenticado, para garantizar la seguridad de la aplicación.                                   |
-| **Registro de electrodomésticos**       | Como usuario, necesito registrar electrodomésticos en mi hogar, proporcionando información como foto, marca, voltaje, corriente y potencia, para llevar un control del consumo de energía. |
-| **Visualización de resumen semanal**    | Como usuario, necesito visualizar un resumen semanal del consumo de energía clasificado por actividad, para entender cuáles actividades contribuyen más a mi gasto energético.     |
-| **Predecir el período de mayor consumo**| Como usuario, necesito tener un reporte predictivo sobre el período en que el consumo de energía será más alto, para planificar mi consumo y reducir el uso de energía.           |
-| **Notificaciones y alertas**            | Como usuario, necesito recibir notificaciones cuando mi consumo de energía está por encima del promedio esperado, para tomar medidas inmediatas y evitar gastos innecesarios.      |
-| **Almacenamiento de datos históricos**  | Como usuario, necesito que el sistema almacene mi consumo energético histórico, para generar reportes y predicciones precisas.                                                   |
-| **Alerta de uso prolongado**            | Como usuario, necesito recibir una alerta cuando un electrodoméstico ha estado en uso durante un tiempo prolongado, para evitar consumo excesivo y prevenir posibles daños.        |
-| **Actualización de perfil**             | Como usuario registrado, necesito poder actualizar mi información personal, como nombre, correo electrónico o dirección, para mantener mis datos actualizados.                    |
+| Actividad                                         | Responsable                                        | Periodo de entrega |
+|---------------------------------------------------|----------------------------------------------------|---------------------|
+| **Sprint 1**                                      |                                                    |                     |
+| Compra de dispositivo para medición y registro de datos | Todas las binas                                    | Viernes 8/11/24    |
+| Creación de base de datos en Supabase             | Bina1                                             | Jueves 7/11/24     |
+| Configuración de Backend en Express               | Bina2                                             | Jueves 7/11/24     |
+| Gestión de usuarios – CRUD de Tablas correspondientes (encriptación contraseñas) | Bina3          | Jueves 7/11/24     |
+| Diseño inicial del frontend en Angular            | Bina1                                             | Jueves 14/11/24    |
+| Documentación total                               | Bina4                                             | Jueves 14/11/24    |
+| **Sprint 2**                                      |                                                    |                     |
+| Protección de rutas en Angular                    | Bina2                                             | Jueves 14/11/24    |
+| Gestión de electrodomésticos - CRUD               | Bina3                                             | Jueves 14/11/24    |
+| Autenticación JWT                                 | Bina1                                             | Jueves 21/11/24    |
+| Notificaciones de consumo                         | Bina2                                             | Jueves 21/11/24    |
+| Conexión IoT                                      | Bina3                                             | Jueves 21/11/24    |
+| Revisión                                          | Bina4                                             | Jueves 21/11/24    |
+| Despliegue                                        | Docente                                           |                     |
 
-### Nuevas Historias de Usuario para el Frontend en Angular y Seguridad
+### Integrantes de las Binas
 
-| Título                                  | Historia de Usuario                                                                                                                                                            |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Creación del frontend en Angular**    | Como desarrollador, necesito crear el frontend utilizando Angular, con una interfaz intuitiva que permita a los usuarios registrarse, iniciar sesión y visualizar su consumo de energía. |
-| **Protección de rutas por rol**         | Como usuario administrador, necesito que el sistema me permita acceder a rutas específicas que no están disponibles para otros roles, para que pueda gestionar la plataforma correctamente. |
-| **Encriptación de contraseñas**         | Como desarrollador, necesito implementar la encriptación de contraseñas en el backend utilizando Express y bcrypt, para garantizar la seguridad de los datos de los usuarios.     |
-| **Autenticación basada en JWT**         | Como desarrollador, necesito implementar la autenticación con JWT en Express para que el frontend pueda verificar si los usuarios están autenticados antes de acceder a rutas protegidas. |
+- **Bina1**: Cristian Camilo Hurtado Jimenez, Geraldine Tatiana Criollo
+- **Bina2**: Aslly Ivonne Zuñiga, Ximena Tatiana Diaz
+- **Bina3**: Felipe Santiago, Luis Alejandro
+- **Bina4**: Felipe Gustin, Jorge Luis Andrade
 
-## Modelo de Predicción
-
-### Modelo Propuesto
-Se recomienda utilizar un modelo de **Regresión Lineal** o **ARIMA (AutoRegressive Integrated Moving Average)** para predecir el consumo energético. Estos modelos pueden captar patrones temporales y tendencias en el consumo de energía, permitiendo generar predicciones precisas.
+**Presentación del evento**: Jorge Luis Andrade y Felipe Gustin
 
 ### Datos Mínimos Necesarios para el Modelo de Predicción
 
