@@ -25,19 +25,17 @@ module.exports = {
   },
   createConsumo(req, res) {
     const { tiempo_consumo, consumo_energia, id_electrodomestico } = req.body;
-    bcrypt.hash(password, saltos, (error, hashedPassword) => {
-      if (error) return res.status(500).send(error);
-      return consumo
-        .create({
-          tiempo_consumo: req.body.tiempo_consumo,
-          consumo_energia: req.body.consumo_energia,
-          id_electrodomestico: req.body.id_electrodomestico,
-        })
-        .then((consumo) => {
-          return res.status(201).send(consumo);
-        })
-        .catch((error) => res.status(400).send(error));
-    });
+
+    if (error) return res.status(500).send(error);
+    return consumo
+      .create({
+        tiempo_consumo: req.body.tiempo_consumo,
+        consumo_energia: req.body.consumo_energia,
+        id_electrodomestico: req.body.id_electrodomestico,
+      })
+      .then((consumo) => {
+        return res.status(201).send(consumo);
+      });
   },
 
   updateConsumo(req, res) {
@@ -48,10 +46,11 @@ module.exports = {
           return res.status(404).send({ message: "Usuario Not Found" });
         }
 
-        const updatedData = { 
-          tiempo_consumo, consumo_energia, id_electrodomestico 
-        } =
-          req.body;
+        const updatedData = ({
+          tiempo_consumo,
+          consumo_energia,
+          id_electrodomestico,
+        } = req.body);
 
         if (tiempo_consumo) {
           consumo.tiempo_consumo = tiempo_consumo;

@@ -25,7 +25,13 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
   createReporte(req, res) {
-    const { periodo_inicio, periodo_fin, consumo_total, consumo_maximo, id_usuario } = req.body;
+    const {
+      periodo_inicio,
+      periodo_fin,
+      consumo_total,
+      consumo_maximo,
+      id_usuario,
+    } = req.body;
     return reporte
       .create({
         periodo_inicio,
@@ -37,24 +43,22 @@ module.exports = {
       .then((reporte) => res.status(201).send(reporte))
       .catch((error) => res.status(400).send(error));
   },
-  
 
   updateReporte(req, res) {
     return reporte
       .findByPk(req.params.id)
       .then((reporte) => {
         if (!reporte) {
-          return res
-            .status(404)
-            .send({ message: "Reporte Not Found",
-
-             });
+          return res.status(404).send({ message: "Reporte Not Found" });
         }
 
-        const updatedData = {
-            periodo_inicio, periodo_fin, consumo_total, consumo_maximo, id_usuario
-          } =
-          req.body;
+        const updatedData = ({
+          periodo_inicio,
+          periodo_fin,
+          consumo_total,
+          consumo_maximo,
+          id_usuario,
+        } = req.body);
 
         if (periodo_inicio) {
           reporte.periodo_inicio = periodo_inicio;
@@ -83,14 +87,14 @@ module.exports = {
       .findByPk(req.params.id)
       .then((reporte) => {
         if (!reporte) {
-          return res
-            .status(404)
-            .send({ message: "Reporte Not Found" });
+          return res.status(404).send({ message: "Reporte Not Found" });
         }
 
         return reporte
           .destroy()
-          .then(() => res.status(204).send({ message: 'Reporte eliminado correctamente' }))
+          .then(() =>
+            res.status(204).send({ message: "Reporte eliminado correctamente" })
+          )
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
