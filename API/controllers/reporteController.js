@@ -26,19 +26,18 @@ module.exports = {
   },
   createReporte(req, res) {
     const { periodo_inicio, periodo_fin, consumo_total, consumo_maximo, id_usuario } = req.body;
-      if (error) return res.status(500).send(error);
-      return reporte
-        .create({
-          periodo_inicio: req.body.periodo_inicio,
-          periodo_fin: req.body.periodo_fin,
-          consumo_total: req.body.consumo_total,
-          consumo_maximo: req.body.consumo_maximo,
-          id_usuario: req.body.id_usuario,
-        })
-        .then((reporte) => {
-          return res.status(201).send(reporte);
-        })
+    return reporte
+      .create({
+        periodo_inicio,
+        periodo_fin,
+        consumo_total,
+        consumo_maximo,
+        id_usuario,
+      })
+      .then((reporte) => res.status(201).send(reporte))
+      .catch((error) => res.status(400).send(error));
   },
+  
 
   updateReporte(req, res) {
     return reporte

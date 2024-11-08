@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var electrodomesticostRouter = require('./routes/electrodomesticos');
 var consumoRouter = require('./routes/consumo_energetico');
 var usuariosRouter = require('./routes/usuarios');
-var reporteRouter = require('./routes/reporte');
+var reporteRouter = require("./routes/reporte");
 
 var app = express();
 
@@ -24,13 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/electrodomesticos', electrodomesticostRouter);
-app.use('/consumo_energeticos', consumoRouter);
+app.use('/consumo_energetico', consumoRouter);
 app.use('/usuarios', usuariosRouter);
-app.use('/reporte', reporteRouter);
-
-
-
-
+app.use("/reporte", reporteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
