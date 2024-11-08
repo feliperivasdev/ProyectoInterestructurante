@@ -29,9 +29,9 @@ module.exports = {
       if (error) return res.status(500).send(error);
       return consumo
         .create({
-          tiempo_consumo,
-          consumo_energia,
-          id_electrodomestico,
+          tiempo_consumo: req.body.tiempo_consumo,
+          consumo_energia: req.body.consumo_energia,
+          id_electrodomestico: req.body.id_electrodomestico,
         })
         .then((consumo) => {
           return res.status(201).send(consumo);
@@ -48,7 +48,9 @@ module.exports = {
           return res.status(404).send({ message: "Usuario Not Found" });
         }
 
-        const { tiempo_consumo, consumo_energia, id_electrodomestico } =
+        const updatedData = { 
+          tiempo_consumo, consumo_energia, id_electrodomestico 
+        } =
           req.body;
 
         if (tiempo_consumo) {
