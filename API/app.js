@@ -8,8 +8,7 @@ var indexRouter = require('./routes/index');
 var electrodomesticostRouter = require('./routes/electrodomesticos');
 var consumoRouter = require('./routes/consumo_energetico');
 var usuariosRouter = require('./routes/usuarios');
-
-
+var reporteRouter = require('./routes/reporte');
 
 var app = express();
 
@@ -27,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/electrodomesticos', electrodomesticostRouter);
 app.use('/consumo_energeticos', consumoRouter);
 app.use('/usuarios', usuariosRouter);
+app.use('/reporte', reporteRouter);
 
 
 

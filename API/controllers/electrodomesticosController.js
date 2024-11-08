@@ -26,7 +26,6 @@ module.exports = {
   },
   createElectrodomestico(req, res) {
     const { nombre, marca, modelo, potencia_nominal, id_usuario } = req.body;
-    bcrypt.hash(password, saltos, (error, hashedPassword) => {
       if (error) return res.status(500).send(error);
       return electrodomesticos
         .create({
@@ -39,8 +38,6 @@ module.exports = {
         .then((electrodomesticos) => {
           return res.status(201).send(electrodomesticos);
         })
-        .catch((error) => res.status(400).send(error));
-    });
   },
 
   updateElectrodomestico(req, res) {
