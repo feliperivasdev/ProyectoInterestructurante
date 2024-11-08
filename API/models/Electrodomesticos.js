@@ -55,8 +55,8 @@ module.exports = (sequelize) => {
       field: "id_usuario",
       autoIncrement: false,
       references: {
-      key: "id",
-      model: "Usuarios_model",
+        key: "id",
+        model: "Usuarios_model",
       },
     },
   };

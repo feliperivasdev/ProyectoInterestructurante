@@ -26,7 +26,7 @@ module.exports = {
   },
   createElectrodomestico(req, res) {
     const { nombre, marca, modelo, potencia_nominal, id_usuario } = req.body;
-  
+
     return electrodomesticos
       .create({
         nombre,
@@ -40,9 +40,12 @@ module.exports = {
       })
       .catch((error) => {
         console.error("Error al crear el electrodoméstico:", error);
-        return res.status(500).send({ message: "Error al crear el electrodoméstico", error: error.message });
+        return res.status(500).send({
+          message: "Error al crear el electrodoméstico",
+          error: error.message,
+        });
       });
-  },  
+  },
 
   updateElectrodomestico(req, res) {
     return electrodomesticos
@@ -51,15 +54,16 @@ module.exports = {
         if (!electrodomesticos) {
           return res
             .status(404)
-            .send({ message: "Electrodomestico Not Found",
-
-             });
+            .send({ message: "Electrodomestico Not Found" });
         }
 
-        const updatedData = {
-           nombre, marca, modelo, potencia_nominal, id_usuario 
-          } =
-          req.body;
+        const updatedData = ({
+          nombre,
+          marca,
+          modelo,
+          potencia_nominal,
+          id_usuario,
+        } = req.body);
 
         if (nombre) {
           electrodomesticos.nombre = nombre;
@@ -95,7 +99,11 @@ module.exports = {
 
         return electrodomesticos
           .destroy()
-          .then(() => res.status(204).send({ message: 'Electrodomestico eliminado correctamente' }))
+          .then(() =>
+            res
+              .status(204)
+              .send({ message: "Electrodomestico eliminado correctamente" })
+          )
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));

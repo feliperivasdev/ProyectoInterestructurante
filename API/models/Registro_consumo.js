@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
       comment: null,
       primaryKey: true,
       field: "id_registro",
-      autoIncrement: false,
+      autoIncrement: true,
     },
     tiempo_consumo: {
       type: DataTypes.DATE,
@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
     },
     cosumo_energia: {
       type: DataTypes.DOUBLE,
-      allowNull: true,
+      allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: false,
