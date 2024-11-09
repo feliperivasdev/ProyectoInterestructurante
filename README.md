@@ -26,15 +26,15 @@ El sistema permitirá el registro de electrodomésticos con sus características
 | Creación de base de datos en Supabase             | Bina1                                             | Jueves 7/11/24     |
 | Configuración de Backend en Express               | Bina2                                             | Jueves 7/11/24     |
 | Gestión de usuarios – CRUD de Tablas correspondientes (encriptación contraseñas) | Bina3          | Jueves 7/11/24     |
-| Diseño inicial del frontend en Angular            | Bina1                                             | Jueves 14/11/24    |
-| Documentación total                               | Bina4                                             | Jueves 14/11/24    |
-| **Sprint 2**                                      |                                                    |                     |
-| Protección de rutas en Angular                    | Bina2                                             | Jueves 14/11/24    |
+| **Sprint 2**                                  |                                                    |                     |
 | Gestión de electrodomésticos - CRUD               | Bina3                                             | Jueves 14/11/24    |
-| Autenticación JWT                                 | Bina1                                             | Jueves 21/11/24    |
-| Notificaciones de consumo                         | Bina2                                             | Jueves 21/11/24    |
-| Conexión IoT                                      | Bina3                                             | Jueves 21/11/24    |
-| Revisión                                          | Bina4                                             | Jueves 21/11/24    |
+| Autenticación JWT                                 | Bina1                                             | Jueves 14/11/24    |
+| Notificaciones de consumo                         | Bina2                                             | Jueves 14/11/24    |
+| Conexión IoT                                      | Bina3                                             | Jueves 14/11/24    |
+| Revisión                                          | Bina4                                             | Jueves 14/11/24    |
+| Diseño inicial del frontend en Angular            | Bina1                                             | Viernes 15/11/24    |
+| Protección de rutas en Angular                    | Bina2                                             | Viernes 15/11/24    |
+| Documentación total                               | Bina4                                             | Viernes 15/11/24    |
 | Despliegue                                        | Docente                                           |                     |
 
 ### Integrantes de las Binas
