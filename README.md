@@ -35,6 +35,7 @@ El sistema permitirá el registro de electrodomésticos con sus características
 | Diseño inicial del frontend en Angular            | Bina1                                             | Viernes 15/11/24    |
 | Protección de rutas en Angular                    | Bina2                                             | Viernes 15/11/24    |
 | Documentación total                               | Bina4                                             | Viernes 15/11/24    |
+| Pruebas unitarias                                 | Todos                                             | Martes 19/11/24    |
 | Despliegue                                        | Docente                                           |                     |
 
 ### Integrantes de las Binas
@@ -44,7 +45,7 @@ El sistema permitirá el registro de electrodomésticos con sus características
 - **Bina3**: Felipe Santiago, Luis Alejandro
 - **Bina4**: Felipe Gustin, Jorge Luis Andrade
 
-**Presentación del evento**: Jorge Luis Andrade y Felipe Gustin
+**Presentación del evento: 21/11/24**: Jorge Luis Andrade y Felipe Gustin
 
 ### Datos Mínimos Necesarios para el Modelo de Predicción
 
