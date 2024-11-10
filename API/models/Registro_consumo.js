@@ -19,13 +19,13 @@ module.exports = (sequelize) => {
       field: "tiempo_consumo",
       autoIncrement: false,
     },
-    cosumo_energia: {
+    consumo_energia: {
       type: DataTypes.DOUBLE,
       allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: false,
-      field: "cosumo_energia",
+      field: "consumo_energia",
       autoIncrement: false,
     },
     id_electrodomestico: {
@@ -51,10 +51,14 @@ module.exports = (sequelize) => {
     freezeTableName: true,
     schema: "public",
   };
-  const RegistroConsumoModel = sequelize.define(
-    "Registro_consumo_model",
-    attributes,
-    options
-  );
+  const RegistroConsumoModel = sequelize.define("Registro_consumo_model", attributes, options);
+  RegistroConsumoModel.associate = function (models) {
+    RegistroConsumoModel.hasOne(models.Electrodomesticos_model, {
+      foreignKey: 'id_electrodomestico',
+
+    });
+  };
+
+
   return RegistroConsumoModel;
 };

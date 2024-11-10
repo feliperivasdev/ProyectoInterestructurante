@@ -70,5 +70,14 @@ module.exports = (sequelize) => {
     schema: "public",
   };
   const ReporteModel = sequelize.define("Reporte_model", attributes, options);
+  ReporteModel.associate = function (models) {
+
+    ReporteModel.hasOne(models.Usuarios_model, {
+      foreignKey: 'id_usuario',
+
+    });
+
+  };
+
   return ReporteModel;
 };

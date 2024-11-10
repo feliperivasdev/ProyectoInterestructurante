@@ -69,10 +69,21 @@ module.exports = (sequelize) => {
     freezeTableName: true,
     schema: "public",
   };
-  const ElectrodomesticosModel = sequelize.define(
-    "Electrodomesticos_model",
-    attributes,
-    options
-  );
+  const ElectrodomesticosModel = sequelize.define("Electrodomesticos_model", attributes, options);
+
+  ElectrodomesticosModel.associate = function (models) {
+
+    ElectrodomesticosModel.belongsTo(models.Registro_consumo_model, {
+      foreignKey: 'id_electrodomestico'
+    });
+
+    ElectrodomesticosModel.hasOne(models.Usuarios_model, {
+      foreignKey: 'id_usuario',
+
+    });
+
+  };
+
+
   return ElectrodomesticosModel;
 };

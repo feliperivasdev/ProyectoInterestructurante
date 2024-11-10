@@ -84,5 +84,18 @@ module.exports = (sequelize) => {
     schema: "public",
   };
   const UsuariosModel = sequelize.define("Usuarios_model", attributes, options);
+
+  UsuariosModel.associate = function (models) {
+
+    UsuariosModel.belongsTo(models.Electrodomesticos_model, {
+      foreignKey: 'id_electrodomestico'
+    });
+
+    UsuariosModel.belongsTo(models.Reporte_model, {
+      foreignKey: 'id_reporte'
+    });
+
+  };
+
   return UsuariosModel;
 };

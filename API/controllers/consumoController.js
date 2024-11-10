@@ -24,12 +24,12 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
   createConsumo(req, res) {
-    const { tiempo_consumo, cosumo_energia, id_electrodomestico } = req.body;
+    const { tiempo_consumo, consumo_energia, id_electrodomestico } = req.body;
 
     return consumo
       .create({
         tiempo_consumo: req.body.tiempo_consumo,
-        cosumo_energia: req.body.cosumo_energia,
+        consumo_energia: req.body.consumo_energia,
         id_electrodomestico: req.body.id_electrodomestico,
       })
       .then((nuevoConsumo) => {
@@ -51,14 +51,14 @@ module.exports = {
           return res.status(404).send({ message: "Consumo no encontrado" });
         }
 
-        const { tiempo_consumo, cosumo_energia, id_electrodomestico } =
+        const { tiempo_consumo, consumo_energia, id_electrodomestico } =
           req.body;
 
         if (tiempo_consumo) {
           consumo.tiempo_consumo = tiempo_consumo;
         }
-        if (cosumo_energia) {
-          consumo.cosumo_energia = cosumo_energia;
+        if (consumo_energia) {
+          consumo.consumo_energia = consumo_energia;
         }
         if (id_electrodomestico) {
           consumo.id_electrodomestico = id_electrodomestico;
