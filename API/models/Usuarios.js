@@ -87,12 +87,8 @@ module.exports = (sequelize) => {
 
   UsuariosModel.associate = function (models) {
 
-    UsuariosModel.belongsTo(models.Electrodomesticos_model, {
-      foreignKey: 'id_electrodomestico'
-    });
-
-    UsuariosModel.belongsTo(models.Reporte_model, {
-      foreignKey: 'id_reporte'
+    UsuariosModel.hasOne(models.Reporte_model, {
+      foreignKey: 'id_usuario'
     });
 
   };

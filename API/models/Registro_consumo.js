@@ -1,13 +1,13 @@
 const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   const attributes = {
-    id_registro: {
+    id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: true,
-      field: "id_registro",
+      field: "id",
       autoIncrement: true,
     },
     tiempo_consumo: {
@@ -53,7 +53,8 @@ module.exports = (sequelize) => {
   };
   const RegistroConsumoModel = sequelize.define("Registro_consumo_model", attributes, options);
   RegistroConsumoModel.associate = function (models) {
-    RegistroConsumoModel.hasOne(models.Electrodomesticos_model, {
+
+    RegistroConsumoModel.belongsTo(models.Electrodomesticos_model, {
       foreignKey: 'id_electrodomestico',
 
     });

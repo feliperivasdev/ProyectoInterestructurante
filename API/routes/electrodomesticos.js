@@ -5,7 +5,7 @@ const electrodomesticosController =
 
 router.get("/", electrodomesticosController.list);
 
-router.get("/", electrodomesticosController.getById);
+router.get("/:id", electrodomesticosController.getById);
 
 router.post("/", electrodomesticosController.createElectrodomestico);
 

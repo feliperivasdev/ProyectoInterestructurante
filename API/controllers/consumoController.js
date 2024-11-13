@@ -33,7 +33,7 @@ module.exports = {
         id_electrodomestico: req.body.id_electrodomestico,
       })
       .then((nuevoConsumo) => {
-        return res.status(201).send(nuevoConsumo);
+        return res.status(201).send({ message: "Consumo creado correctamente" });
       })
       .catch((error) => {
         // Aquí estamos capturando el error correctamente
@@ -67,7 +67,7 @@ module.exports = {
         return consumo
           .save()
           .then(() => {
-            return res.status(200).send(consumo);
+            return res.status(200).send({ message: "Consumo actualizado correctamente" });
           })
           .catch((error) =>
             res
@@ -93,14 +93,15 @@ module.exports = {
       .findByPk(req.params.id)
       .then((consumo) => {
         if (!consumo) {
-          return res.status(404).send({ message: "Consumo Not Found" });
+          return res.status(404).send({ message: "Consumo no encontrado" });
         }
-
+  
         return consumo
           .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
+          .then(() => res.status(200).send({ message: "Consumo eliminado correctamente" })) // Cambiado a 200 y mensaje en éxito
+          .catch((error) => res.status(400).send());
       })
-      .catch((error) => res.status(400).send(error));
-  },
+      .catch((error) => res.status(500).send());
+  }
+  ,
 };

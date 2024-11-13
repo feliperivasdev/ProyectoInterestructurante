@@ -1,14 +1,14 @@
 const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   const attributes = {
-    id_reporte: {
+    id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: true,
-      field: "id_reporte",
-      autoIncrement: false,
+      field: "id",
+      autoIncrement: true,
     },
     periodo_inicio: {
       type: DataTypes.DATEONLY,
@@ -19,13 +19,13 @@ module.exports = (sequelize) => {
       field: "periodo_inicio",
       autoIncrement: false,
     },
-    Periodo_fin: {
+    periodo_fin: {
       type: DataTypes.DATEONLY,
       allowNull: true,
       defaultValue: null,
       comment: null,
       primaryKey: false,
-      field: "Periodo_fin",
+      field: "periodo_fin",
       autoIncrement: false,
     },
     consumo_total: {
@@ -72,7 +72,7 @@ module.exports = (sequelize) => {
   const ReporteModel = sequelize.define("Reporte_model", attributes, options);
   ReporteModel.associate = function (models) {
 
-    ReporteModel.hasOne(models.Usuarios_model, {
+    ReporteModel.belongsTo(models.Usuarios_model, {
       foreignKey: 'id_usuario',
 
     });

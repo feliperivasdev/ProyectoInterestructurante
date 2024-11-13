@@ -5,7 +5,7 @@ const usuariosController =
 
 router.get("/", usuariosController.list);
 
-router.get("/", usuariosController.getById);
+router.get("/:id", usuariosController.getById);
 
 router.post("/", usuariosController.createUsuario);
 

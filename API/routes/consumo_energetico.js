@@ -5,7 +5,7 @@ const consumoController =
 
 router.get("/", consumoController.list);
 
-router.get("/", consumoController.getById);
+router.get("/:id", consumoController.getById);
 
 router.post("/", consumoController.createConsumo);
 
