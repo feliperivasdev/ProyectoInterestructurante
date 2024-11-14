@@ -31,16 +31,16 @@ module.exports = {
 
   createUsuario(req, res) {
 
-    bcrypt.hash(req.body.contraseña, saltRounds)
+    bcrypt.hash(req.body.password, saltRounds)
       .then(hashedPassword => {
         return usuarios.create({
           nombre: req.body.nombre,
           apellido: req.body.apellido,
           cedula: req.body.cedula,
           email: req.body.email,
-          contraseña: hashedPassword,
+          password: hashedPassword,
           rol: req.body.rol
-          // Guardar la contraseña encriptada
+          // Guardar la password encriptada
         });
       })
       .then((usuarios) => res.status(201).send({ message: 'Usuario creado correctamente' }))
@@ -62,8 +62,8 @@ module.exports = {
           rol: req.body.rol || usuarios.rol
         };
 
-        if (req.body.contraseña) {
-          updatedData.contraseña = await bcrypt.hash(req.body.contraseña, saltRounds);
+        if (req.body.password) {
+          updatedData.password = await bcrypt.hash(req.body.password, saltRounds);
         }
 
         return usuarios
