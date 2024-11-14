@@ -46,13 +46,13 @@ module.exports = (sequelize) => {
       field: "email",
       autoIncrement: false,
     },
-    contraseña: {
+    password: {
       type: DataTypes.CHAR,
       allowNull: true,
       defaultValue: null,
       comment: null,
       primaryKey: false,
-      field: "contraseña",
+      field: "password",
       autoIncrement: false,
     },
     rol: {
