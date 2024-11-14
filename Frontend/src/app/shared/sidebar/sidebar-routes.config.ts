@@ -3,12 +3,24 @@ import { RouteInfo } from './sidebar.metadata';
 //Sidebar menu Routes and data
 export const ROUTES: RouteInfo[] = [
     {
-        path: '', title: 'My project', icon: 'bx bx-brain', class: 'sub',
-        badge: '', badgeClass: '', isExternalLink: false, submenu: [
-            {
-                path: '/dashboard/project', title: 'Project', icon: 'bx bxright-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            },
-        ]
+        path: '/dashboard/usuarios', title: 'Usuarios', icon: 'lni lni-user', class: '',
+        badge: '', badgeClass: '', isExternalLink: false, submenu: []
+    },
+     
+    {
+        path: '/dashboard/electrodomesticos', title: 'Electrodomésticos', icon: 'ni lni-display', class: '', 
+        badge: '', badgeClass: '', isExternalLink: false, submenu: []
+    },
+    
+
+    {
+        path: '/dashboard/consumo', title: 'Registro de consumo', icon: 'lni lni-bolt', class: '',
+        badge: '', badgeClass: '', isExternalLink: false, submenu: []
+    },
+
+    {
+        path: '/dashboard/reporte', title: 'Reporte', icon: 'lni lni-bar-chart', class: '',
+        badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
 
     /*

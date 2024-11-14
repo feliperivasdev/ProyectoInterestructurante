@@ -25,14 +25,45 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import * as $ from 'jquery';
-import { ProjectComponent } from './project/project.component';
+import { ElectrodomesticosComponent } from './electrodomesticos/electrodomesticos.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ConsumoComponent } from './consumo/consumo.component';
+import { ReporteComponent } from './reporte/reporte.component';
+import { CreateUsuariosComponent } from './create-usuarios/create-usuarios.component';
+import { DeleteUsuariosComponent } from './delete-usuarios/delete-usuarios.component';
+import { EditUsuariosComponent } from './edit-usuarios/edit-usuarios.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateConsumoComponent } from './create-consumo/create-consumo.component';
+import { DeleteConsumoComponent } from './delete-consumo/delete-consumo.component';
+import { EditConsumoComponent } from './edit-consumo/edit-consumo.component';
+import { CreateElectrodomesticosComponent } from './create-electrodomesticos/create-electrodomesticos.component';
+import { DeleteElectrodomesticosComponent } from './delete-electrodomesticos/delete-electrodomesticos.component';
+import { EditElectrodomesticosComponent } from './edit-electrodomesticos/edit-electrodomesticos.component';
+import { CreateReporteComponent } from './create-reporte/create-reporte.component';
+import { DeleteReporteComponent } from './delete-reporte/delete-reporte.component';
+import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
     ContentLayoutComponent,
-    ProjectComponent,
+    ElectrodomesticosComponent,
+    UsuariosComponent,
+    ConsumoComponent,
+    ReporteComponent,
+    CreateUsuariosComponent,
+    DeleteUsuariosComponent,
+    EditUsuariosComponent,
+    CreateConsumoComponent,
+    DeleteConsumoComponent,
+    EditConsumoComponent,
+    CreateElectrodomesticosComponent,
+    DeleteElectrodomesticosComponent,
+    EditElectrodomesticosComponent,
+    CreateReporteComponent,
+    DeleteReporteComponent,
+    EditReporteComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +74,8 @@ import { ProjectComponent } from './project/project.component';
     AppRoutingModule,
     SharedModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyDKXKdHQdtqgPVl2HI2RnUa_1bjCxRCQo4'}),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
