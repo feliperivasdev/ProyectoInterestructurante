@@ -11,7 +11,7 @@ var electrodomesticostRouter = require("./routes/electrodomesticos");
 var consumoRouter = require("./routes/consumo_energetico");
 var usuariosRouter = require("./routes/usuarios");
 var reporteRouter = require("./routes/reporte");
-
+var authRouter = require('./routes/authRoutes')
 var app = express();
 app.use(cors());
 
@@ -30,6 +30,7 @@ app.use("/electrodomesticos", electrodomesticostRouter);
 app.use("/consumo_energetico", consumoRouter);
 app.use("/usuarios", usuariosRouter);
 app.use("/reporte", reporteRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
