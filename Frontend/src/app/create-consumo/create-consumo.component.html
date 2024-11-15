@@ -1,1 +1,50 @@
+<form [formGroup]="consumoForm" (ngSubmit)="onSubmit()">
+  <label for="nombre">Nombre:</label>
+  <input id="nombre" formControlName="nombre" />
+  <div
+    *ngIf="
+      consumoForm.get('nombre').invalid && consumoForm.get('nombre').touched
+    "
+  >
+    El nombre es requerido.
+  </div>
+
+  <label for="marca">Marca:</label>
+  <input id="marca" formControlName="marca" />
+  <div
+    *ngIf="consumoForm.get('marca').invalid && consumoForm.get('marca').touched"
+  >
+    La marca es requerida.
+  </div>
+
+  <label for="modelo">Modelo:</label>
+  <input id="modelo" formControlName="modelo" />
+  <div
+    *ngIf="
+      consumoForm.get('modelo').invalid && consumoForm.get('modelo').touched
+    "
+  >
+    El modelo es requerido.
+  </div>
+
+  <label for="potencia_nominal">Potencia Nominal:</label>
+  <input
+    id="potencia_nominal"
+    formControlName="potencia_nominal"
+    type="number"
+  />
+  <div
+    *ngIf="
+      consumoForm.get('potencia_nominal').invalid &&
+      consumoForm.get('potencia_nominal').touched
+    "
+  >
+    La potencia nominal es requerida y debe ser un número.
+  </div>
+
+  <button type="submit" [disabled]="consumoForm.invalid">Enviar</button>
+</form>
+
 <p>create-consumo works!</p>
+
+<!-- Formulario nombre marca modelo potencia nominal -->
