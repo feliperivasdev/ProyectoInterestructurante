@@ -58,7 +58,8 @@ El sistema permitirá el registro de electrodomésticos con sus características
 Este modelo es ideal para el PMV, dado que el ingreso de datos es manual y no hay una gran cantidad de datos disponibles inicialmente.
 
 ### Mocup web
-![2799752](https://github.com/user-attachments/assets/66bedd99-86ee-4051-9308-b890c705ffae)
+![image](https://github.com/user-attachments/assets/0873772d-a32d-4e4e-afbf-5e069ce5f6e8)
+
 
 ### Modelo Entidad Relación
 ![Diagram 1](https://github.com/user-attachments/assets/fccb0444-0011-4c63-90ad-57e623cf0926)
