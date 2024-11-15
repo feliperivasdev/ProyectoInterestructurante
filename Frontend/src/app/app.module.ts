@@ -43,6 +43,7 @@ import { CreateReporteComponent } from './create-reporte/create-reporte.componen
 import { DeleteReporteComponent } from './delete-reporte/delete-reporte.component';
 import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
     EditElectrodomesticosComponent,
     CreateReporteComponent,
     DeleteReporteComponent,
-    EditReporteComponent
+    EditReporteComponent,
+
   ],
   imports: [
     BrowserModule,

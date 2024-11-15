@@ -1,5 +1,6 @@
 import { Component , OnInit } from '@angular/core';
 import { SidebarService } from '../sidebar/sidebar.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -10,8 +11,8 @@ import { SidebarService } from '../sidebar/sidebar.service';
 
 export class NavbarComponent implements OnInit{
 
-    constructor(public sidebarservice: SidebarService) { }
-        
+    constructor(public sidebarservice: SidebarService, public authService:AuthService) { }
+    nombreUsuario = localStorage.getItem('nombre')
     toggleSidebar() {
         this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
     }
@@ -23,7 +24,10 @@ export class NavbarComponent implements OnInit{
     hideSidebar() {
         this.sidebarservice.setSidebarState(true);
     }
-
+    
+    logout(){
+        this.authService.logout();
+    }
     ngOnInit() {
 
         /* Search Bar */
