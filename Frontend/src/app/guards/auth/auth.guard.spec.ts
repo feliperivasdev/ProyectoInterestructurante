@@ -1,16 +1,26 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
 
-import { AuthGuard } from './auth.guard';
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuardGuard implements CanActivate {
 
-describe('AuthGuard', () => {
-  let guard: AuthGuard;
+  constructor(private router: Router) {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    guard = TestBed.inject(AuthGuard);
-  });
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
-  });
-});
+    // Verifica si existe el token en el localStorage
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      return true;
+    } else {
+      this.router.navigate(['']);
+      return false;
+    }
+  }
+}
