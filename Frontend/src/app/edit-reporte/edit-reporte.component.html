@@ -1,0 +1,36 @@
+<h6 class="mb-0 text-uppercase">Editar Usuario</h6>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="reporte" (submit)="save()">
+
+            <div class="mb-3">
+                <label class="form-label">Periodo inicio:</label>
+                <input type="text" class="form-control" formControlName="periodo_inicio" id="periodo_inicio">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Periodo fin:</label>
+                <input type="text" class="form-control" formControlName="periodo_fin" id="periodo_fin">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Consumo total:</label>
+                <input type="text" class="form-control" formControlName="consumo_total" id="consumo_total">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Consumo maximo:</label>
+                <input type="text" class="form-control" formControlName="consumo_maximo" id="consumo_maximo">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Id usuario:</label>
+                <select class="form-control" formControlName="id_usuario" id="id_usuario">
+                    <option *ngFor="let reporte of reporte" [value]="reporte.id">{{ reporte.nombre }}</option>
+                </select>
+            </div>
+
+            <button [disabled]="reporte.invalid" type="submit" class="btn btn-primary px-5">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>

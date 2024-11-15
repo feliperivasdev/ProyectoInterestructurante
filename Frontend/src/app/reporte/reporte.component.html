@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-body">
+        <table class="table mb-0 table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"># Id</th>
+                    <th scope="col">Periodo de inicio</th>
+                    <th scope="col">Periodo de fin</th>
+                    <th scope="col">Consumo total</th>
+                    <th scope="col">Consumo maximo</th>
+                    <th scope="col">Id Usuario</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pry of reporte">
+                    <th scope="row">{{pry.id}}</th>
+                    <td>{{pry.periodo_inicio}}</td>
+                    <td>{{pry.periodo_fin}}</td>
+                    <td>{{pry.consumo_total}}</td>
+                    <td>{{pry.consumo_maximo}}</td>
+                    <td>{{pry.id_usuario}}</td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" [checked]="pry.state">
+                            <label class="form-check-label" for="flexSwitchCheckChecked">
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <a role="button" (click)="editarReporte(pry.id)" class="bi bi-pencil-square"></a>
+                        <a role="button" (click)="confirmDeleteReporte(pry.id)" class="bi bi-trash"></a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

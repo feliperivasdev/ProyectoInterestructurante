@@ -6,17 +6,77 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { DigitalMarketingComponent } from './digital-marketing/digital-marketing.component';
 import { HumanResourcesComponent } from './human-resources/human-resources.component';
-import { ProjectComponent } from '../project/project.component';
+import { ElectrodomesticosComponent } from '../electrodomesticos/electrodomesticos.component';
+import { UsuariosComponent } from '../usuarios/usuarios.component';
+import { ConsumoComponent } from '../consumo/consumo.component';
+import { ReporteComponent } from '../reporte/reporte.component';
+import { CreateUsuariosComponent } from '../create-usuarios/create-usuarios.component';
+import { CreateElectrodomesticosComponent } from '../create-electrodomesticos/create-electrodomesticos.component';
+import { CreateConsumoComponent } from '../create-consumo/create-consumo.component';
+import { CreateReporteComponent } from '../create-reporte/create-reporte.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'project',
-        component: ProjectComponent,
+        path: 'usuarios',
+        component: UsuariosComponent,
         data: {
-          title: 'Projects'
+          title: 'Usuarios'
+        }
+      },
+
+      {
+        path: 'create-usuarios',
+        component: CreateUsuariosComponent,
+        data: {
+          title: 'Create-Usuarios'
+        }
+      },
+
+      {
+        path: 'electrodomesticos',
+        component: ElectrodomesticosComponent,
+        data: {
+          title: 'Electrodomesticos'
+        }
+      },
+      {
+        path: 'create-electrodomesticos',
+        component: CreateElectrodomesticosComponent,
+        data: {
+          title: 'Create-Electrodomesticos'
+        }
+      },
+
+      {
+        path: 'consumo',
+        component: ConsumoComponent,
+        data: {
+          title: 'Consumo'
+        }
+      },
+
+      {
+        path: 'create-consumo',
+        component: CreateConsumoComponent,
+        data: {
+          title: 'Create-Consumo'
+        }
+      },
+      {
+        path: 'reporte',
+        component: ReporteComponent,
+        data: {
+          title: 'Reporte'
+        }
+      },
+      {
+        path: 'create-reporte',
+        component: CreateReporteComponent,
+        data: {
+          title: 'Create-Reporte'
         }
       },
       {
