@@ -8,7 +8,7 @@ export const ROUTES: RouteInfo[] = [
     },
      
     {
-        path: '/dashboard/electrodomesticos', title: 'Electrodomésticos', icon: 'ni lni-display', class: '', 
+        path: '/dashboard/electrodomesticos', title: 'Electrodomésticos', icon: 'lni lni-display', class: '', 
         badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
     
