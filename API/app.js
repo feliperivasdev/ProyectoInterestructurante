@@ -3,6 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var cors = require('cors');
+
 
 var indexRouter = require("./routes/index");
 var electrodomesticostRouter = require("./routes/electrodomesticos");
@@ -11,6 +13,7 @@ var usuariosRouter = require("./routes/usuarios");
 var reporteRouter = require("./routes/reporte");
 
 var app = express();
+app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
