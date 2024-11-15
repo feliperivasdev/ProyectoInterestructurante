@@ -8,7 +8,7 @@ var cors = require('cors');
 
 var indexRouter = require("./routes/index");
 var electrodomesticostRouter = require("./routes/electrodomesticos");
-var consumoRouter = require("./routes/consumo_energetico");
+var consumoRouter = require("./routes/consumo");
 var usuariosRouter = require("./routes/usuarios");
 var reporteRouter = require("./routes/reporte");
 var authRouter = require('./routes/authRoutes')
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/electrodomesticos", electrodomesticostRouter);
-app.use("/consumo_energetico", consumoRouter);
+app.use("/consumo", consumoRouter);
 app.use("/usuarios", usuariosRouter);
 app.use("/reporte", reporteRouter);
 app.use('/auth', authRouter);
