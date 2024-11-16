@@ -58,7 +58,7 @@ module.exports = (sequelize) => {
     rol: {
       type: DataTypes.CHAR,
       allowNull: true,
-      defaultValue: null,
+      defaultValue: "usuario",
       comment: null,
       primaryKey: false,
       field: "rol",
