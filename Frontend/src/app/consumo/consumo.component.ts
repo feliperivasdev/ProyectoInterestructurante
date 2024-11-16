@@ -19,7 +19,7 @@ export class ConsumoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.us.getConsumo().subscribe({
+    this.ps.getConsumo().subscribe({
       next: (data) => {
         this.consumo = data;
         console.log(data);
