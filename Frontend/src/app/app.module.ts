@@ -39,7 +39,6 @@ import { EditConsumoComponent } from './edit-consumo/edit-consumo.component';
 import { CreateElectrodomesticosComponent } from './create-electrodomesticos/create-electrodomesticos.component';
 import { DeleteElectrodomesticosComponent } from './delete-electrodomesticos/delete-electrodomesticos.component';
 import { EditElectrodomesticosComponent } from './edit-electrodomesticos/edit-electrodomesticos.component';
-import { CreateReporteComponent } from './create-reporte/create-reporte.component';
 import { DeleteReporteComponent } from './delete-reporte/delete-reporte.component';
 import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
 
@@ -62,7 +61,6 @@ import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
     CreateElectrodomesticosComponent,
     DeleteElectrodomesticosComponent,
     EditElectrodomesticosComponent,
-    CreateReporteComponent,
     DeleteReporteComponent,
     EditReporteComponent,
 

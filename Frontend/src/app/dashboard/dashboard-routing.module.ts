@@ -13,7 +13,7 @@ import { ReporteComponent } from '../reporte/reporte.component';
 import { CreateUsuariosComponent } from '../create-usuarios/create-usuarios.component';
 import { CreateElectrodomesticosComponent } from '../create-electrodomesticos/create-electrodomesticos.component';
 import { CreateConsumoComponent } from '../create-consumo/create-consumo.component';
-import { CreateReporteComponent } from '../create-reporte/create-reporte.component';
+
 
 const routes: Routes = [
   {
@@ -72,13 +72,7 @@ const routes: Routes = [
           title: 'Reporte'
         }
       },
-      {
-        path: 'create-reporte',
-        component: CreateReporteComponent,
-        data: {
-          title: 'Create-Reporte'
-        }
-      },
+      
       {
         path: 'default',
         component: DefaultComponent,

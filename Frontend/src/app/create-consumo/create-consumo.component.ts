@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ConsumoService } from "../services/consumo.service"; // Importa el servicio de Consumo
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: "app-create-consumo",
@@ -8,40 +10,35 @@ import { ConsumoService } from "../services/consumo.service"; // Importa el serv
   styleUrls: ["./create-consumo.component.scss"],
 })
 export class CreateConsumoComponent implements OnInit {
-  consumoForm: FormGroup;
+  public consumo: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private consumoService: ConsumoService // Inyecta el servicio
+    private formBuilder: FormBuilder,
+    private consumoService: ConsumoService,
+    private router:Router
   ) {
-    this.consumoForm = this.fb.group({
-      nombre: ["", Validators.required],
-      marca: ["", Validators.required],
-      modelo: ["", Validators.required],
-      potenciaNominal: [
-        "",
-        [Validators.required, Validators.pattern("^[0-9]+$")],
-      ],
-    });
+    
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {this.consumo = this.formBuilder.group({
+    tiempo_consumo: ['', [Validators.required]],
+    consumo_energia: ['', [Validators.required]],
+    id_electrodomestico: ['', [Validators.required]],
+  });}
 
-  onSubmit(): void {
-    if (this.consumoForm.valid) {
-      const consumoData = this.consumoForm.value; // Obtén los datos del formulario
-
-      // Llama al servicio para enviar los datos al backend
-      this.consumoService.addConsumo(consumoData).subscribe({
-        next: (response) => {
-          console.log("Consumo creado exitosamente:", response);
-          // Aquí puedes redirigir o mostrar un mensaje de éxito
-        },
-        error: (err) => {
-          console.error("Error al crear consumo:", err);
-          // Muestra un mensaje de error si la solicitud falla
-        },
-      });
-    }
+save(): void {
+  if (this.consumo.valid) {
+    this.consumoService.addConsumo(this.consumo.value).subscribe(
+      response => {
+        console.log('consumo saved successfully', response);
+      },
+      error => {
+        console.error('Error saving consumo', error);
+      }
+    );
+  } else {
+    console.log('Form is invalid');
   }
+  
+}
 }

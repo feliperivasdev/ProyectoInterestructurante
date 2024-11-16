@@ -1,43 +1,30 @@
-<div class="form-container">
-    <h2>Crear Consumo</h2>
-    <form [formGroup]="consumoForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" formControlName="nombre" type="text" class="form-control" />
-        <div *ngIf="consumoForm.get('nombre')?.invalid && consumoForm.get('nombre')?.touched" class="error-message">
-          El nombre es obligatorio.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="marca">Marca</label>
-        <input id="marca" formControlName="marca" type="text" class="form-control" />
-        <div *ngIf="consumoForm.get('marca')?.invalid && consumoForm.get('marca')?.touched" class="error-message">
-          La marca es obligatoria.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="modelo">Modelo</label>
-        <input id="modelo" formControlName="modelo" type="text" class="form-control" />
-        <div *ngIf="consumoForm.get('modelo')?.invalid && consumoForm.get('modelo')?.touched" class="error-message">
-          El modelo es obligatorio.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="potenciaNominal">Potencia Nominal</label>
-        <input id="potenciaNominal" formControlName="potenciaNominal" type="text" class="form-control" />
-        <div *ngIf="consumoForm.get('potenciaNominal')?.invalid && consumoForm.get('potenciaNominal')?.touched" class="error-message">
-          La potencia nominal es obligatoria y debe ser un número.
-        </div>
-      </div>
-  
-      <button type="submit" [disabled]="consumoForm.invalid">Crear Consumo</button>
-    </form>
-  </div>
-  
+<h6 class="mb-0 text-uppercase">Crear Usuario</h6>
+<hr/>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="consumo" (submit)="save()">
 
-<p>create-consumo works!</p>
+            <div class="mb-3">
+                <label class="form-label">Tiempo de consumo:</label>
+                <input type="text" class="form-control" formControlName="tiempo_consumo" id="tiempo_consumo">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Consumo de energia:</label>
+                <input type="text" class="form-control" formControlName="consumo_energia" id="consumo_energia">
+            </div>
+
+            <!-- <div class="mb-3">
+                <label class="form-label">Id electrodomestico:</label>
+                <select class="form-control" formControlName="id_electrodomestico" id="id_electrodomestico">
+                    <option *ngFor="let electrodomestico of electrodomestico" [value]="electrodomestico.id">{{ electrodomestico.nombre }}</option>
+                </select>
+            </div> -->
+
+            <button [disabled]="consumo.invalid" type="submit" class="btn btn-primary px-5">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>
 
 <!-- Formulario nombre marca modelo potencia nominal -->
