@@ -1,31 +1,39 @@
-<div class="card">
-    <div class="card-body">
+<div class="container mt-4">
+    <!-- Notificación -->
+    <div class="alert alert-info" *ngIf="notificacion">
+      {{ notificacion }}
+    </div>
+    <!-- Botón para Generar Notificación -->
+    <div class="text-right mb-3">
+      <button class="btn btn-primary" (click)="notificar()">Generar Notificación</button>
+    </div>
+  
+    <!-- Tabla de Consumo -->
+    <div class="card">
+      <div class="card-body">
         <table class="table mb-0 table-striped">
-            <thead>
-                <tr>
-                    <th scope="col"># Id</th>
-                    <th scope="col">Tiempo consumo</th>
-                    <th scope="col">Consumo energia</th>
-                    <th scope="col">Id electrodomestico</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pry of consumo">
-                    <th scope="row">{{pry.id}}</th>
-                    <td>{{pry.tiempo_consumo}}</td>
-                    <td>{{pry.consumo_energia}}</td>
-                    <td>{{pry.id_electrodomestico}}</td>
-                    <td>
-
-                    </td>
-                    <td>
-                        <a role="button" (click)="editarConsumo(pry.id)" class="lni lni-pencil"></a>
-                        <a role="button" (click)="confirmDeleteConsumo(pry.id)" class="lni lni-trash"></a>
-
-                    </td>
-                </tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th scope="col"># Id</th>
+              <th scope="col">Tiempo Consumo</th>
+              <th scope="col">Consumo Energía</th>
+              <th scope="col">Id Electrodoméstico</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pry of consumo">
+              <th scope="row">{{ pry.id }}</th>
+              <td>{{ pry.tiempo_consumo }}</td>
+              <td>{{ pry.consumo_energia }}</td>
+              <td>{{ pry.id_electrodomestico }}</td>
+              <td>
+                <a role="button" (click)="editarConsumo(pry.id)" class="lni lni-pencil" title="Editar"></a>
+                <a role="button" (click)="confirmDeleteConsumo(pry.id)" class="lni lni-trash" title="Eliminar"></a>
+              </td>
+            </tr>
+          </tbody>
         </table>
+      </div>
     </div>
 </div>
