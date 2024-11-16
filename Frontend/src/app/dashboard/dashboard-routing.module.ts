@@ -13,7 +13,6 @@ import { ReporteComponent } from '../reporte/reporte.component';
 import { CreateUsuariosComponent } from '../create-usuarios/create-usuarios.component';
 import { CreateElectrodomesticosComponent } from '../create-electrodomesticos/create-electrodomesticos.component';
 import { CreateConsumoComponent } from '../create-consumo/create-consumo.component';
-import { CreateReporteComponent } from '../create-reporte/create-reporte.component';
 import { LoginGuard } from '../guards/login/login.guard';
 
 
@@ -74,13 +73,7 @@ const routes: Routes = [
           title: 'Reporte'
         }
       },
-      {
-        path: 'create-reporte',
-        component: CreateReporteComponent,canActivate:[LoginGuard],
-        data: {
-          title: 'Create-Reporte'
-        }
-      },
+    
       {
         path: 'default',
         component: DefaultComponent,canActivate:[LoginGuard],
