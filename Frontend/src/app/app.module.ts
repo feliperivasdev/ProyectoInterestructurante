@@ -42,6 +42,7 @@ import { EditElectrodomesticosComponent } from './edit-electrodomesticos/edit-el
 import { CreateReporteComponent } from './create-reporte/create-reporte.component';
 import { DeleteReporteComponent } from './delete-reporte/delete-reporte.component';
 import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
     CreateReporteComponent,
     DeleteReporteComponent,
     EditReporteComponent,
+    HomeComponent,
 
   ],
   imports: [
