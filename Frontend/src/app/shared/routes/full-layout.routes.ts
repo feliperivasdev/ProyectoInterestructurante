@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
+import { LoginGuard } from 'src/app/guards/login/login.guard';
+
+
 
 //Route for content layout with sidebar, navbar and footer.
 
 export const Full_ROUTES: Routes = [
     {
-        path: 'dashboard',
+        path: 'dashboard',canActivate:[LoginGuard],
         loadChildren: () => import('../../dashboard/dashboard.module').then(m => m.DashboardModule)
     },
     {

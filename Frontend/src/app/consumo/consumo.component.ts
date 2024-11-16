@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
 export class ConsumoComponent implements OnInit {
 
   public consumo: any;
+  public notificacion
 
   constructor(
-    private us: ConsumoService,
-    private router: Router
+    private ps: ConsumoService,
+    
+
   ) { }
 
   ngOnInit(): void {
@@ -28,24 +30,22 @@ export class ConsumoComponent implements OnInit {
     });
   }
 
-  nuevoConsumo(): void {
-    this.router.navigate(['create-consumo']);
-  }
-
-  editarConsumo(id: string): void {
-    console.log(`Navigating to edit-consumo/${id}`);
-    this.router.navigate(['edit-consumo', id]);
-  }
-
-  eliminarConsumo(id: string) {
-    this.router.navigate(['delete-consumo/' + id]);
-  }
-
-  confirmaEliminarConsumo(id: string) {
-    const confirm = window.confirm('¿Está seguro de borrar el registro?');
-    if (confirm) {
-      this.eliminarConsumo(id);
-    }
-  }
+  notificar(): string {
+    let notificacion: string = '';
+    
+    // Obtener el último registro de consumo desde el servicio
+    this.ps.getConsumo().subscribe((ultimoConsumo) => {
+      if (ultimoConsumo.valor > 40.0) { // Ejemplo: umbral de 100 unidades
+        notificacion = `⚠️ ¡Atención! El consumo registrado es alto: ${ultimoConsumo.valor} unidades.`;
+      } else {
+        notificacion = `✅ El consumo es normal: ${ultimoConsumo.valor} unidades.`;
+      }
+      
+      // Aquí puedes enviar la notificación, guardarla o retornarla
+      console.log(notificacion); // Ejemplo de uso
+    });
+    
+    return notificacion;
+  }  
 }
 
