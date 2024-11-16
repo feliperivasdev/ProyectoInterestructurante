@@ -1,0 +1,63 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Grid Background -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f0" stroke-width="0.5"/>
+    </pattern>
+    <rect width="800" height="600" fill="url(#grid)" />
+    <!-- ESP32 Module -->
+    <rect x="400" y="200" width="200" height="300" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="500" y="230" text-anchor="middle" font-weight="bold">ESP32</text>
+    
+    <!-- ESP32 Pins -->
+    <text x="390" y="280" text-anchor="end" font-size="12">3.3V</text>
+    <text x="390" y="320" text-anchor="end" font-size="12">GND</text>
+    <text x="390" y="380" text-anchor="end" font-size="12">PIN 34 (ADC)</text>
+    
+    <!-- ACS712 Module -->
+    <rect x="200" y="200" width="100" height="150" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="250" y="230" text-anchor="middle" font-weight="bold">ACS712</text>
+    
+    <!-- ACS712 Pins -->
+    <text x="310" y="280" text-anchor="start" font-size="12">VCC</text>
+    <text x="310" y="320" text-anchor="start" font-size="12">GND</text>
+    <text x="310" y="360" text-anchor="start" font-size="12">OUT</text>
+    
+    <!-- Load Terminals -->
+    <rect x="50" y="250" width="60" height="100" fill="none" stroke="#000" stroke-width="2"/>
+    <text x="80" y="230" text-anchor="middle" font-weight="bold">CARGA</text>
+    <text x="80" y="290" text-anchor="middle">110V AC</text>
+    
+    <!-- Power Lines -->
+    <line x1="50" y1="280" x2="200" y2="280" stroke="red" stroke-width="2"/>
+    <line x1="50" y1="320" x2="200" y2="320" stroke="blue" stroke-width="2"/>
+    
+    <!-- Connections -->
+    <!-- VCC Connection -->
+    <line x1="300" y1="280" x2="400" y2="280" stroke="#ff0000" stroke-width="2"/>
+    <!-- GND Connection -->
+    <line x1="300" y1="320" x2="400" y2="320" stroke="#0000ff" stroke-width="2"/>
+    <!-- Signal Connection -->
+    <line x1="300" y1="360" x2="400" y2="360" stroke="#00ff00" stroke-width="2"/>
+    
+    <!-- WiFi Symbol -->
+    <path d="M 480,100 C 440,140 520,140 480,100 M 480,120 C 460,140 500,140 480,120" 
+          fill="none" stroke="#000" stroke-width="2"/>
+    <text x="480" y="160" text-anchor="middle">WiFi</text>
+    
+    <!-- Legend -->
+    <rect x="600" y="50" width="150" height="120" fill="#fff" stroke="#000"/>
+    <text x="620" y="70" font-weight="bold">Leyenda:</text>
+    <line x1="620" y1="90" x2="650" y2="90" stroke="red" stroke-width="2"/>
+    <text x="660" y="95">VCC (5V)</text>
+    <line x1="620" y1="110" x2="650" y2="110" stroke="blue" stroke-width="2"/>
+    <text x="660" y="115">GND</text>
+    <line x1="620" y1="130" x2="650" y2="130" stroke="#00ff00" stroke-width="2"/>
+    <text x="660" y="135">Señal</text>
+    <line x1="620" y1="150" x2="650" y2="150" stroke="red" stroke-width="2"/>
+    <text x="660" y="155">110V AC</text>
+    <!-- Notes -->
+    <text x="50" y="500" font-size="12">Notas:</text>
+    <text x="50" y="520" font-size="12">1. El sensor ACS712 debe estar correctamente calibrado antes de su uso</text>
+    <text x="50" y="540" font-size="12">2. Asegurarse de que la alimentación del ESP32 sea estable</text>
+    <text x="50" y="560" font-size="12">3. La carga debe estar conectada en serie con el sensor ACS712</text>
+</svg>
