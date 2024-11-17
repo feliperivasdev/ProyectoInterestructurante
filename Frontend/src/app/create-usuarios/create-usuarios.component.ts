@@ -28,8 +28,7 @@ export class CreateUsuariosComponent implements OnInit {
       cedula: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      rol: ['', [Validators.required]],
-      created_at: ['', [Validators.required]]
+      rol: ['', [Validators.required]]
   });
   }
  
@@ -38,11 +37,9 @@ export class CreateUsuariosComponent implements OnInit {
       this.usuariosService.addUsuarios(this.usuarios.value).subscribe(
         response => {
           console.log('usuarios saved successfully', response);
-          // Maneja la respuesta aquí (por ejemplo, mostrando una notificación al usuario)
         },
         error => {
           console.error('Error saving usuarios', error);
-          // Maneja el error aquí (por ejemplo, mostrando un mensaje de error al usuario)
         }
       );
     } else {

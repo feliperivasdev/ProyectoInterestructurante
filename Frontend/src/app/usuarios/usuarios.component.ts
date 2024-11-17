@@ -33,7 +33,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   editarUsuarios(id: string): void {
-    console.log(`Navigating to edit-usuarios/${id}`);
+    console.log('Navigating to edit-usuarios/${id}');
     this.router.navigate(['edit-usuarios', id]);
   }
 
