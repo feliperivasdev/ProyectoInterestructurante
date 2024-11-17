@@ -12,9 +12,8 @@ export class DeleteElectrodomesticosComponent implements OnInit {
   is_ok = false;
   is_error = false;
   is_empty = false;
-  id: '';
-
-
+  id: string = '';  
+  
   electrodomesticos = {
     id: '',
     nombre: '',
@@ -23,22 +22,32 @@ export class DeleteElectrodomesticosComponent implements OnInit {
     potencia_nominal: '',
     id_usuario: ''
   };
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private electrodomesticosService: ElectrodomesticosService
   ) { 
-    this.id = activatedRoute.snapshot.params['id'];
+    this.id = this.activatedRoute.snapshot.params['id'];  
   }
 
   ngOnInit(): void {
-    let electrodomesticos = this.electrodomesticosService.deleteElectrodomesticosReg(this.id).subscribe({
-      next: (data => {
-        this.electrodomesticos = data;
-        this.router.navigate(['/dashboard/electrodomesticos']); 
-      }),
-      error: (err => err)
-    })
+    
+    this.deleteElectrodomestico();
   }
 
+  deleteElectrodomestico(): void {
+    this.electrodomesticosService.deleteElectrodomesticosReg(this.id).subscribe({
+      next: (data) => {
+        this.is_ok = true;  
+        console.log('Electrodoméstico eliminado correctamente:', data);
+        this.router.navigate(['/dashboard/electrodomesticos']);  
+      },
+      error: (err) => {
+        this.is_error = true;  
+        console.error('Error al eliminar electrodoméstico:', err);
+      }
+    });
+  }
 }
+

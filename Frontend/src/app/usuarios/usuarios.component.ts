@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../services/usuarios.service';
 import { Router } from '@angular/router';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -9,43 +9,48 @@ import { Router } from '@angular/router';
 })
 export class UsuariosComponent implements OnInit {
 
-  public Usuarios: any;
+  public Usuarios: any[] = [];
 
   constructor(
-    private us: UsuariosService,
+    private usuariosService: UsuariosService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    let pry = this.us.getUsuarios().subscribe(
-      {
-        next: (data => {
-          this.Usuarios = data;
-          console.log(data);
-        }),
-        error: (err => err)
-      }
-    );
+    this.usuariosService.getUsuarios().subscribe({
+      next: (data) => {
+        this.Usuarios = data;
+        console.log(data);
+      },
+      error: (err) => console.error(err)
+    });
   }
 
   nuevoUsuarios(): void {
-    this.router.navigate(['dashboard/create-usuarios'])
+    this.router.navigate(['dashboard/create-usuarios']);
   }
 
   editarUsuarios(id: string): void {
-    console.log(`Navigating to edit-usuarios/${id}`);
-    this.router.navigate(['dashboard/edit-usuarios', id]);
+    this.router.navigate([`dashboard/edit-usuarios/${id}`]);
   }
 
-  eliminarUsuarios(id: string) {
-    this.router.navigate(['delete-usuarios/' + id])
-  }
-
-  confirmaEliminarUsuarios(id: string) {
-    const confirm = window.confirm('Esta seguro de borrar el registro?')
+  confirmaEliminarUsuarios(id: string): void {
+    const confirm = window.confirm('¿Está seguro de borrar el registro?');
     if (confirm) {
-      this.eliminarUsuarios(id)
+      this.eliminarUsuarios(id);
     }
   }
 
+  eliminarUsuarios(id: string): void {
+    this.usuariosService.deleteUsuariosReg(id).subscribe({
+      next: (response) => {
+        console.log('Usuario eliminado correctamente', response);
+        // Volver a cargar la lista de usuarios después de la eliminación
+        this.ngOnInit();
+      },
+      error: (err) => console.error('Error al eliminar usuario', err)
+    });
+  }
+
 }
+

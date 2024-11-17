@@ -1,1 +1,17 @@
-<p>delete-reporte works!</p>
+<div class="card">
+    <div class="card-body">
+      <h5>¿Está seguro que desea eliminar el reporte?</h5>
+      <p><strong>Id:</strong> {{ reporte.id }}</p>
+      <p><strong>Periodo de inicio:</strong> {{ reporte.periodo_inicio }}</p>
+      <p><strong>Periodo de fin:</strong> {{ reporte.periodo_fin }}</p>
+      <p><strong>Consumo total:</strong> {{ reporte.consumo_total }}</p>
+      <p><strong>Consumo máximo:</strong> {{ reporte.consumo_maximo }}</p>
+      <p><strong>Id Usuario:</strong> {{ reporte.id_usuario }}</p>
+      
+      <button (click)="navigateToList()" class="btn btn-secondary">Cancelar</button>
+      <button (click)="ngOnInit()" class="btn btn-danger">Confirmar eliminación</button>
+    </div>
+  </div>
+  
+  
+  

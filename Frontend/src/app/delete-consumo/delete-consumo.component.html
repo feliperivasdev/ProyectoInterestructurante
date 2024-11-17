@@ -1,1 +1,14 @@
-<p>delete-consumo works!</p>
+<div class="container mt-4">
+    <div *ngIf="is_error" class="alert alert-danger">
+        Hubo un error al intentar eliminar el consumo.
+    </div>
+
+    <div *ngIf="!is_error" class="alert alert-success">
+        El consumo ha sido eliminado correctamente.
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-primary" (click)="router.navigate(['/dashboard/consumo'])">Regresar</button>
+    </div>
+</div>
+

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../services/usuarios.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-edit-usuarios',
@@ -12,34 +11,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EditUsuariosComponent implements OnInit {
 
   public Usuarios: FormGroup;
-  id='';
+  id = '';
 
   constructor(
     private formBuilder: FormBuilder,
-    private UsuariosService: UsuariosService,
-    private activateRoute: ActivatedRoute,
+    private usuariosService: UsuariosService,
+    private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.id = this.activateRoute.snapshot.params['id'];
-   }
+    this.id = this.activatedRoute.snapshot.params['id'];
 
-
-  ngOnInit(): void {
-
-    this.UsuariosService.getUsuariosById(this.id).subscribe({
-      next: (data => {
-        this.Usuarios.setValue({
-          nombre: data.nombre,
-          apellido: data.apellido,
-          cedula: data.cedula,
-          email: data.email,
-          password: data.password,
-          rol: data.rol
-        });
-      }),
-      error: (err => console.error(err))
-    });
-
+    
     this.Usuarios = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
@@ -50,19 +32,40 @@ export class EditUsuariosComponent implements OnInit {
     });
   }
 
+  ngOnInit(): void {
+    
+    this.usuariosService.getUsuariosById(this.id).subscribe({
+      next: (data) => {
+        
+        this.Usuarios.patchValue({
+          nombre: data.nombre,
+          apellido: data.apellido,
+          cedula: data.cedula,
+          email: data.email,
+          password: data.password,
+          rol: data.rol
+        });
+      },
+      error: (err) => console.error(err)
+    });
+  }
 
   save(): void {
     if (this.Usuarios.valid) {
-      this.UsuariosService.editUsuarios(this.Usuarios.value, this.id).subscribe({
-        next: response => {
-          console.log('Usuario editado correctamente', response);
-          this.router.navigate(['/dashboard/Usuarios']); 
+      console.log('Datos que se enviarán:', this.Usuarios.value);
+      this.usuariosService.editUsuarios(this.Usuarios.value, this.id).subscribe({
+        next: (response) => {
+          console.log('Usuario editado correctamente', response); 
+          this.router.navigate(['/dashboard/usuarios']);
         },
-        error: err => console.error('Error al editar usuario', err)
+        error: (err) => console.error('Error al editar usuario', err)
       });
     } else {
       console.log('Formulario inválido');
     }
   }
 
+
+
 }
+

@@ -1,0 +1,14 @@
+<div>
+    <h2>Eliminar Usuario</h2>
+    
+    <div *ngIf="is_ok" class="success">
+      Usuario eliminado correctamente.
+    </div>
+    <div *ngIf="is_error" class="error">
+      Error al eliminar el usuario.
+    </div>
+    
+    <button (click)="eliminarUsuario()">Eliminar Usuario</button>
+    
+    <button routerLink="/dashboard/usuarios">Cancelar</button>
+  </div>

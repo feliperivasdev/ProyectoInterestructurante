@@ -1,37 +1,36 @@
-
-<button type="button" class="btn btn-primary px-5" (click)="nuevoUsuarios()">+ Nuevo usuario</button>     
+<h6 class="mb-0 text-uppercase">Usuarios</h6>
+<hr />
+<button type="button" class="btn btn-primary px-5" (click)="nuevoUsuarios()">+ Nuevo usuario</button>
 <div class="card">
-    <div class="card-body">
-        <table class="table mb-0 table-striped">
-            <thead>
-                <tr>
-                    <th scope="col"># Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Cedula</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Rol</th>
-                    <th scope="col">Fecha de creación</th>
-                    <th scope="col">Opciones</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pry of Usuarios">
-                    <th scope="row">{{pry.id}}</th>
-                    <td>{{pry.nombre}}</td>
-                    <td>{{pry.apellido}}</td>
-                    <td>{{pry.cedula}}</td>
-                    <td>{{pry.email}}</td>
-                    <td>{{pry.rol}}</td>
-                    <td>{{pry.created_at}}</td>
-                    <td>
-                        <a role="button" (click)="editarUsuarios(pry.id)" class="lni lni-pencil"></a>
-                        <a role="button" (click)="confirmaEliminarUsuarios(pry.id)" class="lni lni-trash"></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+  <div class="card-body">
+    <table class="table mb-0 table-striped">
+      <thead>
+        <tr>
+          <th scope="col"># Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Email</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Fecha de creación</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of Usuarios">
+          <th scope="row">{{ usuario.id }}</th>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.apellido }}</td>
+          <td>{{ usuario.cedula }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td>{{ usuario.created_at }}</td>
+          <td>
+            <a role="button" (click)="editarUsuarios(usuario.id)" class="lni lni-pencil"></a>
+            <a role="button" (click)="confirmaEliminarUsuarios(usuario.id)" class="lni lni-trash"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,1 +1,30 @@
-<p>delete-electrodomesticos works!</p>
+<div class="container">
+    
+    <div *ngIf="is_ok" class="alert alert-success">
+      El electrodoméstico ha sido eliminado correctamente.
+    </div>
+    <div *ngIf="is_error" class="alert alert-danger">
+      Hubo un error al eliminar el electrodoméstico. Intenta nuevamente.
+    </div>
+  
+    
+    <div *ngIf="!is_error && !is_ok" class="card">
+      <div class="card-body">
+        <h5 class="card-title">¿Estás seguro de eliminar este electrodoméstico?</h5>
+        <p class="card-text">
+          <strong>Nombre:</strong> {{ electrodomesticos.nombre }}<br />
+          <strong>Marca:</strong> {{ electrodomesticos.marca }}<br />
+          <strong>Modelo:</strong> {{ electrodomesticos.modelo }}<br />
+          <strong>Potencia nominal:</strong> {{ electrodomesticos.potencia_nominal }}<br />
+        </p>
+  
+        <button class="btn btn-danger" (click)="deleteElectrodomestico()">
+          Eliminar
+        </button>
+        <button class="btn btn-secondary" (click)="router.navigate(['/dashboard/electrodomesticos'])">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+  

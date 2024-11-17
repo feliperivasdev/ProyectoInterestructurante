@@ -12,7 +12,7 @@ export class EditElectrodomesticosComponent implements OnInit {
 
   public electrodomesticos: FormGroup;
   public usuarios: any[] = [];
-  id='';
+  id = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +24,7 @@ export class EditElectrodomesticosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.electrodomesticosService.getElectrodomesticosById(this.id).subscribe({
       next: (data => {
         this.electrodomesticos.setValue({
@@ -37,6 +38,7 @@ export class EditElectrodomesticosComponent implements OnInit {
       error: (err => console.error(err))
     });
 
+    
     this.electrodomesticos = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       marca: ['', [Validators.required]],
@@ -44,7 +46,8 @@ export class EditElectrodomesticosComponent implements OnInit {
       potencia_nominal: ['', [Validators.required]],
       id_usuario: ['', [Validators.required]]
     });
-    this.Usuarios();
+
+    
   }
 
   Usuarios(): void {
@@ -61,13 +64,19 @@ export class EditElectrodomesticosComponent implements OnInit {
     if (this.electrodomesticos.valid) {
       this.electrodomesticosService.editElectrodomesticos(this.electrodomesticos.value, this.id).subscribe({
         next: response => {
-          console.log('electrodomesticos editado correctamente', response);
-          this.router.navigate(['/dashboard/electrodomesticos']); 
+          console.log('Electrodoméstico editado correctamente', response);
+          this.router.navigate(['/dashboard/electrodomesticos']);
         },
-        error: err => console.error('Error al editar electrodomesticos', err)
+        error: err => console.error('Error al editar electrodoméstico', err)
       });
     } else {
       console.log('Formulario inválido');
     }
   }
 }
+
+
+
+
+
+

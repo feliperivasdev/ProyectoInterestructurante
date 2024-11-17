@@ -17,7 +17,7 @@ export class ReporteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let pry = this.us.getReporte().subscribe(
+    this.us.getReporte().subscribe(
       {
         next: (data => {
           this.reporte = data;
@@ -29,23 +29,24 @@ export class ReporteComponent implements OnInit {
   }
 
   nuevoReporte(): void {
-    this.router.navigate(['create-reporte'])
+    this.router.navigate(['create-reporte']);
   }
 
   editarReporte(id: string): void {
-    console.log('Navigating to edit-reporte/${id}');
+    console.log(`Navigating to edit-reporte/${id}`);
     this.router.navigate(['edit-reporte', id]);
   }
 
   eliminarReporte(id: string) {
-    this.router.navigate(['delete-reporte/' + id])
+    this.router.navigate(['dashboard/delete-reporte', id]);
   }
 
   confirmaEliminarReporte(id: string) {
-    const confirm = window.confirm('Esta seguro de borrar el registro?')
+    const confirm = window.confirm('¿Está seguro de borrar el registro?');
     if (confirm) {
-      this.eliminarReporte(id)
+      this.eliminarReporte(id);
     }
   }
 
 }
+
