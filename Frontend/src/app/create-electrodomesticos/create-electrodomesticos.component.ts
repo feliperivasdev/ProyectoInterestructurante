@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CreateElectrodomesticosComponent implements OnInit {
  
   public electrodomesticos: FormGroup;
+  public usuarios: any[] = [];
 
 
   constructor(
@@ -27,8 +28,25 @@ export class CreateElectrodomesticosComponent implements OnInit {
       marca: ['', [Validators.required]],
       modelo: ['', [Validators.required]],
       potencia_nominal: ['', [Validators.required]],
+      id_usuario: ['', [Validators.required]]
+
   });
+  this.Usuarios();
   }
+
+  Usuarios(): void {
+    this.electrodomesticosService.getUsuarios().subscribe(
+      data => {
+        console.log('Electrodomesticos data: ', data);
+        this.usuarios = data;
+      },
+      error => {
+        console.error('Error fetching usuarios', error);
+
+      })
+
+  }
+
  
   save(): void {
     if (this.electrodomesticos.valid) {

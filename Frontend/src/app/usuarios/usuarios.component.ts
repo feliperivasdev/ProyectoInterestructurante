@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UsuariosComponent implements OnInit {
 
-  public usuarios: any;
+  public Usuarios: any;
 
   constructor(
     private us: UsuariosService,
@@ -20,7 +20,7 @@ export class UsuariosComponent implements OnInit {
     let pry = this.us.getUsuarios().subscribe(
       {
         next: (data => {
-          this.usuarios = data;
+          this.Usuarios = data;
           console.log(data);
         }),
         error: (err => err)
@@ -29,12 +29,12 @@ export class UsuariosComponent implements OnInit {
   }
 
   nuevoUsuarios(): void {
-    this.router.navigate(['create-usuarios'])
+    this.router.navigate(['dashboard/create-usuarios'])
   }
 
   editarUsuarios(id: string): void {
-    console.log('Navigating to edit-usuarios/${id}');
-    this.router.navigate(['edit-usuarios', id]);
+    console.log(`Navigating to edit-usuarios/${id}`);
+    this.router.navigate(['dashboard/edit-usuarios', id]);
   }
 
   eliminarUsuarios(id: string) {

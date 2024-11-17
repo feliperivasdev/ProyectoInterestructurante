@@ -35,7 +35,6 @@ import { EditUsuariosComponent } from './edit-usuarios/edit-usuarios.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateConsumoComponent } from './create-consumo/create-consumo.component';
 import { DeleteConsumoComponent } from './delete-consumo/delete-consumo.component';
-import { EditConsumoComponent } from './edit-consumo/edit-consumo.component';
 import { CreateElectrodomesticosComponent } from './create-electrodomesticos/create-electrodomesticos.component';
 import { DeleteElectrodomesticosComponent } from './delete-electrodomesticos/delete-electrodomesticos.component';
 import { EditElectrodomesticosComponent } from './edit-electrodomesticos/edit-electrodomesticos.component';
@@ -58,7 +57,6 @@ import { HomeComponent } from './home/home.component';
     EditUsuariosComponent,
     CreateConsumoComponent,
     DeleteConsumoComponent,
-    EditConsumoComponent,
     CreateElectrodomesticosComponent,
     DeleteElectrodomesticosComponent,
     EditElectrodomesticosComponent,

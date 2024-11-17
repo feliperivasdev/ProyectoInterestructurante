@@ -18,7 +18,7 @@
               <th scope="col">Tiempo Consumo</th>
               <th scope="col">Consumo Energía</th>
               <th scope="col">Id Electrodoméstico</th>
-              <th scope="col">Acciones</th>
+              <th scope="col">Opciones</th>
             </tr>
           </thead>
           <tbody>
@@ -28,8 +28,7 @@
               <td>{{ pry.consumo_energia }}</td>
               <td>{{ pry.id_electrodomestico }}</td>
               <td>
-                <a role="button" (click)="editarConsumo(pry.id)" class="lni lni-pencil" title="Editar"></a>
-                <a role="button" (click)="confirmDeleteConsumo(pry.id)" class="lni lni-trash" title="Eliminar"></a>
+                <a role="button" (click)="confirmaEliminarConsumo(pry.id)" class="lni lni-trash" title="Eliminar"></a>
               </td>
             </tr>
           </tbody>

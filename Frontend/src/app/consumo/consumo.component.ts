@@ -13,13 +13,14 @@ export class ConsumoComponent implements OnInit {
   public notificacion
 
   constructor(
-    private ps: ConsumoService,
+    private cs: ConsumoService,
+    private router: Router
     
 
   ) { }
 
   ngOnInit(): void {
-    this.ps.getConsumo().subscribe({
+    this.cs.getConsumo().subscribe({
       next: (data) => {
         this.consumo = data;
         console.log(data);
@@ -34,7 +35,7 @@ export class ConsumoComponent implements OnInit {
     let notificacion: string = '';
     
     // Obtener el último registro de consumo desde el servicio
-    this.ps.getConsumo().subscribe((ultimoConsumo) => {
+    this.cs.getConsumo().subscribe((ultimoConsumo) => {
       if (ultimoConsumo.valor > 40.0) { // Ejemplo: umbral de 100 unidades
         notificacion = `⚠️ ¡Atención! El consumo registrado es alto: ${ultimoConsumo.valor} unidades.`;
       } else {
@@ -47,5 +48,17 @@ export class ConsumoComponent implements OnInit {
     
     return notificacion;
   }  
+
+
+  eliminarConsumo(id: string) {
+    this.router.navigate(['dashboard/delete-consumo/' + id])
+  }
+
+  confirmaEliminarConsumo(id: string) {
+    const confirm = window.confirm('Esta seguro de borrar el registro?')
+    if (confirm) {
+      this.eliminarConsumo(id)
+    }
+  }
 }
 

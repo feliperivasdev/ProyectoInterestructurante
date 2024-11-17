@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-usuarios.component.scss']
 })
 export class CreateUsuariosComponent implements OnInit {
- 
-  public usuarios: FormGroup;
 
+  public usuarios: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private usuariosService: UsuariosService,
     private router: Router
+
   ) { }
 
   ngOnInit(): void {
@@ -29,23 +29,41 @@ export class CreateUsuariosComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       rol: ['', [Validators.required]]
-  });
+    });
   }
- 
+
+
   save(): void {
+    console.log('Formulario enviado', this.usuarios.value);
     if (this.usuarios.valid) {
       this.usuariosService.addUsuarios(this.usuarios.value).subscribe(
         response => {
-          console.log('usuarios saved successfully', response);
+          console.log('Usuario guardado', response);
+          this.router.navigate(['/dashboard/usuarios']);
         },
         error => {
-          console.error('Error saving usuarios', error);
+          console.error('Error al guardar el usuario', error);
         }
       );
     } else {
-      console.log('Form is invalid');
+      console.log('Formulario inválido');
     }
-    
   }
-  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

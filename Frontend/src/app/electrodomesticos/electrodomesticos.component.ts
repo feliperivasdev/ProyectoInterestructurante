@@ -12,12 +12,12 @@ export class ElectrodomesticosComponent implements OnInit {
   public electrodomesticos: any;
 
   constructor(
-    private us: ElectrodomesticosService,
+    private es: ElectrodomesticosService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    let pry = this.us.getElectrodomesticos().subscribe(
+    let pry = this.es.getElectrodomesticos().subscribe(
       {
         next: (data => {
           this.electrodomesticos = data;
@@ -28,23 +28,23 @@ export class ElectrodomesticosComponent implements OnInit {
     );
   }
 
-  nuevoelEctrodomesticos(): void {
-    this.router.navigate(['create-electrodomesticos'])
+  nuevoElectrodomestico(): void {
+    this.router.navigate(['dashboard/create-electrodomesticos'])
   }
 
-  editarElectrodomesticos(id: string): void {
-    console.log('Navigating to edit-electrodomesticos/${id}');
+  editarElectrodomestico(id: string): void {
+    console.log(`Navigating to edit-electrodomesticos/${id}`);
     this.router.navigate(['edit-electrodomesticos', id]);
   }
 
-  eliminarElectrodomesticos(id: string) {
+  eliminarElectrodomestico(id: string) {
     this.router.navigate(['delete-electrodomesticos/' + id])
   }
 
-  confirmaEliminarElectrodomesticos(id: string) {
+  confirmaEliminarElectrodomestico(id: string) {
     const confirm = window.confirm('Esta seguro de borrar el registro?')
     if (confirm) {
-      this.eliminarElectrodomesticos(id)
+      this.eliminarElectrodomestico(id)
     }
   }
 

@@ -9,6 +9,7 @@
                     <th scope="col">Consumo total</th>
                     <th scope="col">Consumo maximo</th>
                     <th scope="col">Id Usuario</th>
+                    <th scope="col">Opciones</th>
                    
                 </tr>
             </thead>
@@ -21,15 +22,8 @@
                     <td>{{pry.consumo_maximo}}</td>
                     <td>{{pry.id_usuario}}</td>
                     <td>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" [checked]="pry.state">
-                            <label class="form-check-label" for="flexSwitchCheckChecked">
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <a role="button" (click)="editarReporte(pry.id)" class="bi bi-pencil-square"></a>
-                        <a role="button" (click)="confirmaEliminarReporte(pry.id)" class="bi bi-trash"></a>
+                        <!-- <a role="button" (click)="editarReporte(pry.id)" class="lni lni-pencil"></a> -->
+                        <a role="button" (click)="confirmaEliminarReporte(pry.id)" class="lni lni-trash"></a>
 
                     </td>
                 </tr>
