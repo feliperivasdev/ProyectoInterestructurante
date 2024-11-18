@@ -49,19 +49,19 @@ export class CreateElectrodomesticosComponent implements OnInit {
 
  
   save(): void {
+    console.log('Formulario enviado', this.electrodomesticos.value);
     if (this.electrodomesticos.valid) {
       this.electrodomesticosService.addElectrodomesticos(this.electrodomesticos.value).subscribe(
         response => {
-          console.log('electrodomesticos saved successfully', response);
+          console.log('Electrodomestico guardado', response);
+          this.router.navigate(['/dashboard/electrodomesticos']);
         },
         error => {
-          console.error('Error saving electrodomesticos', error);
+          console.error('Error al guardar el electrodomestico', error);
         }
       );
     } else {
-      console.log('Form is invalid');
+      console.log('Formulario inválido');
     }
-    
   }
-  
 }

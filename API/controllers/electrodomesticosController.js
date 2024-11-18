@@ -24,28 +24,26 @@ module.exports = {
       })
       .catch((error) => res.status(400).send(error));
   },
-  createElectrodomestico(req, res) {
-    const { nombre, marca, modelo, potencia_nominal, id_usuario } = req.body;
 
-    return electrodomesticos
-      .create({
-        nombre,
-        marca,
-        modelo,
-        potencia_nominal,
-        id_usuario,
-      })
-      .then((electrodomestico) => {
-        return res.status(201).send({ message: "Electrodomestico agregado correctamente" });
-      })
-      .catch((error) => {
-        console.error("Error al crear el electrodoméstico:", error);
-        return res.status(500).send({
-          message: "Error al crear el electrodoméstico",
-          error: error.message,
-        });
-      });
-  },
+  createElectrodomestico(req, res) {
+  const { nombre, marca, modelo, potencia_nominal, id_usuario } = req.body;
+
+  electrodomesticos.create({
+      nombre,
+      marca,
+      modelo,
+      potencia_nominal,
+      id_usuario
+    })
+    .then(() => {
+      res.status(201).send({ message: "Electrodoméstico agregado correctamente" });
+    })
+    .catch((error) => {
+      console.error("Error al crear el electrodoméstico:", error);
+      res.status(400).send({ message: "Error al crear el electrodoméstico", error: error.message });
+    });
+},
+
 
   updateElectrodomestico(req, res) {
     return electrodomesticos
