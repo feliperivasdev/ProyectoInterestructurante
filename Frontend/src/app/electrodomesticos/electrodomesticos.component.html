@@ -8,9 +8,10 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Modelo</th>
-                    <th scope="col">Potencia Nominal</th>
-                    <th scope="col">Id Usuario</th>
-                    <th scope="col">Opciones</th>
+                    <th scope="col">Potencia (Watts)</th>
+                    <th scope="col">Tiempo (Horas)</th>
+                    <th scope="col">Nivel consumo</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -20,11 +21,9 @@
                     <td>{{pry.marca}}</td>
                     <td>{{pry.modelo}}</td>
                     <td>{{pry.potencia_nominal}}</td>
-                    <td>{{pry.id_usuario}}</td>
-                    <td>
-                        <a role="button" (click)="editarElectrodomestico(pry.id)" class="lni lni-pencil"></a>
-                        <a role="button" (click)="confirmaEliminarElectrodomestico(pry.id)" class="lni lni-trash"></a>
-                    </td>
+                    <td>{{pry.tiempo}}</td>
+                    <td>{{pry.consumo_categoria}}</td>
+                   
                 </tr>
             </tbody>
         </table>

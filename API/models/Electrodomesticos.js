@@ -59,6 +59,28 @@ module.exports = (sequelize) => {
         model: "Usuarios_model",
       },
     },
+    tiempo:{
+      type: DataTypes.CHAR,
+      allowNull: true,
+      defaultValue: null,
+      comment: null,
+      primaryKey: false,
+      field: "tiempo",
+      autoIncrement: false,
+      references: {
+        key: "id",
+        model: "Usuarios_model",
+      },
+    },
+    consumo_categoria: {
+      type: DataTypes.CHAR,
+      allowNull: true,
+      defaultValue: null,
+      comment: null,
+      primaryKey: false,
+      field: "consumo_categoria",
+      autoIncrement: false,
+    }
   };
   const options = {
     tableName: "Electrodomesticos",

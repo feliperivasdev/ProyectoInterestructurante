@@ -32,7 +32,7 @@ import { ReporteComponent } from './reporte/reporte.component';
 import { CreateUsuariosComponent } from './create-usuarios/create-usuarios.component';
 import { DeleteUsuariosComponent } from './delete-usuarios/delete-usuarios.component';
 import { EditUsuariosComponent } from './edit-usuarios/edit-usuarios.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateConsumoComponent } from './create-consumo/create-consumo.component';
 import { DeleteConsumoComponent } from './delete-consumo/delete-consumo.component';
 import { CreateElectrodomesticosComponent } from './create-electrodomesticos/create-electrodomesticos.component';
@@ -41,6 +41,7 @@ import { EditElectrodomesticosComponent } from './edit-electrodomesticos/edit-el
 import { DeleteReporteComponent } from './delete-reporte/delete-reporte.component';
 import { EditReporteComponent } from './edit-reporte/edit-reporte.component';
 import { HomeComponent } from './home/home.component';
+import { PredecirConsumoComponent } from './predecir-consumo/predecir-consumo.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { HomeComponent } from './home/home.component';
     DeleteReporteComponent,
     EditReporteComponent,
     HomeComponent,
+    PredecirConsumoComponent,
 
   ],
   imports: [
@@ -71,6 +73,7 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
     AppRoutingModule,
     SharedModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyDKXKdHQdtqgPVl2HI2RnUa_1bjCxRCQo4'}),
