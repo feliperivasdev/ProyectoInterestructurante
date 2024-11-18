@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
     const password = this.passwordInput?.nativeElement?.value?.trim();
 
     if (!email || !password) {
-      this.loginError = 'Por favor ingrese su cédula y contraseña';
+      this.loginError = 'Por favor ingrese su correo y contraseña';
       return;
     }
 
@@ -41,7 +41,7 @@ export class SignInComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error de login:', error);
-        this.loginError = 'Error al iniciar sesión. Por favor verifique su cédula y contraseña';
+        this.loginError = 'Error al iniciar sesión. Por favor verifique su correo y contraseña';
         this.passwordInput.nativeElement.value = '';
       }
     });

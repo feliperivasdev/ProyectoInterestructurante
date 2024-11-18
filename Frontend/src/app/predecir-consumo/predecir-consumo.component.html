@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2 class="text-center">Predecir Consumo Eléctrico</h2>
+    <form (ngSubmit)="predecir()" #predictForm="ngForm" class="mt-4">
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Selecciona una fecha:</label>
+            <input type="date" id="fecha" [(ngModel)]="date" name="fecha" class="form-control" required />
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary" [disabled]="!predictForm.valid">Predecir</button>
+        </div>
+    </form>
+
+    <div *ngIf="resultado" class="mt-4">
+        <h4>Resultado de la Predicción:</h4>
+        <p><strong>Mensaje:</strong> {{ resultado.message }}</p>
+        <p><strong>Fecha Predicción:</strong> {{ resultado.tiempo_prediccion }}</p>
+        <p><strong>Consumo Predicho:</strong> {{ resultado.consumo_predicho | number: '1.2-2' }} kWh</p>
+    </div>
+</div>

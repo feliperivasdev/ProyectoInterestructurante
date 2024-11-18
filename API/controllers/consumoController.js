@@ -1,4 +1,5 @@
 const consumo = require("../models").Registro_consumo_model;
+const mlReg = require('ml-regression-simple-linear').SimpleLinearRegression;
 module.exports = {
   list(req, res) {
     return consumo
@@ -95,13 +96,90 @@ module.exports = {
         if (!consumo) {
           return res.status(404).send({ message: "Consumo no encontrado" });
         }
-  
+
         return consumo
           .destroy()
           .then(() => res.status(200).send({ message: "Consumo eliminado correctamente" })) // Cambiado a 200 y mensaje en éxito
           .catch((error) => res.status(400).send());
       })
       .catch((error) => res.status(500).send());
+  },
+
+  predictConsumo(req, res) {
+    if (!req.body.tiempo_prediccion) {
+      return res.status(400).send({
+        message: "El campo 'tiempo_prediccion' es requerido",
+      });
+    }
+
+    console.log("Tiempo predicción recibido:", req.body.tiempo_prediccion);
+
+    return consumo
+      .findAll({
+        attributes: ["tiempo_consumo", "consumo_energia"],
+        order: [["tiempo_consumo", "ASC"]],
+      })
+      .then((data) => {
+        if (!data || data.length < 10) {
+          return res
+            .status(400)
+            .send({ message: "No hay suficientes datos para realizar predicciones" });
+        }
+
+        const tiempos = [];
+        const consumos = [];
+        data.forEach((registro) => {
+          const tiempo = new Date(registro.tiempo_consumo).getTime();
+          const consumo = registro.consumo_energia;
+          if (tiempo > 0 && consumo >= 0) {
+            tiempos.push(tiempo);
+            consumos.push(consumo);
+          }
+        });
+
+        if (tiempos.length < 2) {
+          return res.status(400).send({
+            message: "No hay suficientes datos válidos para realizar predicciones",
+          });
+        }
+
+        const tiempoBase = Math.min(...tiempos);
+        const tiemposNormalizados = tiempos.map((t) => t - tiempoBase);
+
+        const regression = new mlReg(tiemposNormalizados, consumos);
+
+        const pendienteOriginal = regression.slope; // Pendiente del modelo
+        const ordenada = regression.intercept; // Ordenada al origen
+
+        console.log("Pendiente original:", pendienteOriginal);
+        console.log("Ordenada al origen:", ordenada);
+
+        // Validar pendiente negativa y ajustar si es necesario
+        const pendiente = pendienteOriginal < 0 ? 0 : pendienteOriginal;
+
+        const tiempoPredecir =
+          new Date(req.body.tiempo_prediccion).getTime() - tiempoBase;
+        const consumoPredicho = pendiente * tiempoPredecir + ordenada;
+
+        // Evitar valores negativos
+        const consumoPredichoFinal = Math.max(0, consumoPredicho);
+
+        console.log("Consumo predicho:", consumoPredichoFinal);
+
+        return res.status(200).send({
+          message: "Predicción realizada con éxito",
+          tiempo_prediccion: req.body.tiempo_prediccion,
+          consumo_predicho: consumoPredichoFinal, // Asegurar retorno adecuado
+        });
+      })
+      .catch((error) => {
+        console.error("Error durante la predicción:", error.message);
+        return res.status(500).send({
+          message: "Error al realizar la predicción",
+          error: error.message,
+        });
+      });
   }
-  ,
+
+
 };

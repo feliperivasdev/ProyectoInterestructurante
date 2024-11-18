@@ -58,6 +58,9 @@ module.exports = {
           });
         }
         const updatedData = {
+          nombre: req.body.nombre || usuarios.nombre,
+          apellido: req.body.apellido || usuarios.apellido,
+          cedula: req.body.cedula || usuarios.cedula,
           email: req.body.email || usuarios.email,
           rol: req.body.rol || usuarios.rol
         };

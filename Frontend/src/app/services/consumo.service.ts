@@ -47,5 +47,7 @@ export class ConsumoService {
     //http://localhost:3000/consumo/:id
     return this.http.delete(ruta);
   }
+
+
 }
 

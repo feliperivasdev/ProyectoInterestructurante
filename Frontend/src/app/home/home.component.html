@@ -1,23 +1,55 @@
-<header class="header_section">
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-        <a class="navbar-brand" routerLink="/">
-          <img src="assets/images/logo.png" alt="" />
-          <span>Wattlytic</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="auth/sign-in" routerLinkActive="active">iniciar sesion</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+<div class="landing-page">
+  <!-- Header -->
+  <header class="hero">
+    <base href="/">
+    <div class="hero-content">
+      <img src="assets/images/logo-icon.png" alt="Wattlytic Monitor" class="hero-image"> <h1 class="title">Wattlytic</h1>
+      <p class="subtitle">Tu aliado en el monitoreo y análisis del consumo energético en casa.</p>
+      <button routerLink="auth/sign-in" class="btn btn-primary" >Comienza Ahora</button>
     </div>
+    
   </header>
-  
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Características Destacadas</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <i class="icon bi bi-lightning-charge"></i>
+        <h3>Monitoreo en Tiempo Real</h3>
+        <p>Controla el consumo energético de tus electrodomésticos en cualquier momento.</p>
+      </div>
+      <div class="card">
+        <i class="icon bi bi-graph-up-arrow"></i>
+        <h3>Reportes Personalizados</h3>
+        <p>Recibe reportes detallados sobre tus patrones de consumo.</p>
+      </div>
+      <div class="card">
+        <i class="icon bi bi-calendar-check"></i>
+        <h3>Predicciones Inteligentes</h3>
+        <p>Optimiza tu consumo con predicciones basadas en datos históricos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>¿Por qué Wattlytic?</h2>
+    <p>
+      Wattlytic te ayuda a tomar decisiones informadas sobre tu consumo de energía.
+      Con nuestra aplicación, puedes conocer tu gasto de energia electrica y contribuir al cuidado del medio ambiente.
+    </p>
+    <img src="assets/images/logo-img.png" alt="Why Wattlytic">
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>¡Empieza a optimizar tu consumo hoy mismo!</h2>
+    <button class="btn btn-secondary">Descubre Más</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Wattlytic. Todos los derechos reservados.</p>
+  </footer>
+</div>

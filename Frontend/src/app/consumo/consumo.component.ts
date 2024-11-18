@@ -8,16 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./consumo.component.scss']
 })
 export class ConsumoComponent implements OnInit {
-
   public consumo: any;
-  public notificacion
+  public notificacion: string | undefined;
+  public mostrarPrediccion: boolean = false; 
 
   constructor(
     private cs: ConsumoService,
     private router: Router
-    
-
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.cs.getConsumo().subscribe({
@@ -33,32 +31,29 @@ export class ConsumoComponent implements OnInit {
 
   notificar(): string {
     let notificacion: string = '';
-    
-    // Obtener el último registro de consumo desde el servicio
     this.cs.getConsumo().subscribe((ultimoConsumo) => {
-      if (ultimoConsumo.valor > 40.0) { // Ejemplo: umbral de 100 unidades
+      if (ultimoConsumo.valor > 40.0) {
         notificacion = `⚠️ ¡Atención! El consumo registrado es alto: ${ultimoConsumo.valor} unidades.`;
       } else {
         notificacion = `✅ El consumo es normal: ${ultimoConsumo.valor} unidades.`;
       }
-      
-      // Aquí puedes enviar la notificación, guardarla o retornarla
-      console.log(notificacion); // Ejemplo de uso
+      console.log(notificacion);
     });
-    
     return notificacion;
-  }  
+  }
 
+  predecir(): void {
+    this.mostrarPrediccion = !this.mostrarPrediccion; // Alterna la visibilidad
+  }
 
   eliminarConsumo(id: string) {
-    this.router.navigate(['dashboard/delete-consumo/' + id])
+    this.router.navigate(['dashboard/delete-consumo/' + id]);
   }
 
   confirmaEliminarConsumo(id: string) {
-    const confirm = window.confirm('Esta seguro de borrar el registro?')
+    const confirm = window.confirm('¿Está seguro de borrar el registro?');
     if (confirm) {
-      this.eliminarConsumo(id)
+      this.eliminarConsumo(id);
     }
   }
 }
-

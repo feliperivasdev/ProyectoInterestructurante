@@ -1,38 +1,55 @@
 <div class="container mt-4">
-    <!-- Notificación -->
-    <div class="alert alert-info" *ngIf="notificacion">
-      {{ notificacion }}
+  <!-- Notificación -->
+  <div class="alert alert-info" *ngIf="notificacion">
+    {{ notificacion }}
+  </div>
+
+  <!-- Botón para Predecir Consumo -->
+  <div class="text-right mb-3">
+    <button class="btn btn-primary" (click)="predecir()">Predecir Consumo</button>
+  </div>
+
+  <!-- Tarjeta de Predicción -->
+  <div class="card mt-3" *ngIf="mostrarPrediccion">
+    <div class="card-header bg-primary text-white">
+      <h5>Predicción de Consumo</h5>
     </div>
-    <!-- Botón para Generar Notificación -->
-    <div class="text-right mb-3">
-      <button class="btn btn-primary" (click)="notificar()">Generar Notificación</button>
+    <div class="card-body">
+      <!-- Incluye el componente de predicción -->
+      <app-predecir-consumo></app-predecir-consumo>
     </div>
-  
-    <!-- Tabla de Consumo -->
-    <div class="card">
-      <div class="card-body">
-        <table class="table mb-0 table-striped">
-          <thead>
-            <tr>
-              <th scope="col"># Id</th>
-              <th scope="col">Tiempo Consumo</th>
-              <th scope="col">Consumo Energía</th>
-              <th scope="col">Id Electrodoméstico</th>
-              <th scope="col">Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pry of consumo">
-              <th scope="row">{{ pry.id }}</th>
-              <td>{{ pry.tiempo_consumo }}</td>
-              <td>{{ pry.consumo_energia }}</td>
-              <td>{{ pry.id_electrodomestico }}</td>
-              <td>
-                <a role="button" (click)="confirmaEliminarConsumo(pry.id)" class="lni lni-trash" title="Eliminar"></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  </div>
+
+  <!-- Tabla de Consumo -->
+  <div class="card">
+    <div class="card-body">
+      <table class="table mb-0 table-striped">
+        <thead>
+          <tr>
+            <th scope="col"># Id</th>
+            <th scope="col">Tiempo Consumo</th>
+            <th scope="col">Consumo Energía</th>
+            <th scope="col">Id Electrodoméstico</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pry of consumo">
+            <th scope="row">{{ pry.id }}</th>
+            <td>{{ pry.tiempo_consumo }}</td>
+            <td>{{ pry.consumo_energia }}</td>
+            <td>{{ pry.id_electrodomestico }}</td>
+            <td>
+              <a
+                role="button"
+                (click)="confirmaEliminarConsumo(pry.id)"
+                class="lni lni-trash"
+                title="Eliminar"
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

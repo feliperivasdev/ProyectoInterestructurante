@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
     },
     apellido: {
       type: DataTypes.CHAR,
-      allowNull: true,
+      allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: false,
@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
     },
     cedula: {
       type: DataTypes.BIGINT,
-      allowNull: true,
+      allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: false,
@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
     },
     email: {
       type: DataTypes.CHAR,
-      allowNull: true,
+      allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: false,
@@ -48,7 +48,7 @@ module.exports = (sequelize) => {
     },
     password: {
       type: DataTypes.CHAR,
-      allowNull: true,
+      allowNull: false,
       defaultValue: null,
       comment: null,
       primaryKey: false,
@@ -57,7 +57,7 @@ module.exports = (sequelize) => {
     },
     rol: {
       type: DataTypes.CHAR,
-      allowNull: true,
+      allowNull: false,
       defaultValue: "usuario",
       comment: null,
       primaryKey: false,
