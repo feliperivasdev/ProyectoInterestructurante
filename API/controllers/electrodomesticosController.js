@@ -36,7 +36,7 @@ module.exports = {
       id_usuario
     })
     .then(() => {
-      res.status(201).send({ message: "Electrodoméstico agregado correctamente" });
+      res.status(201).send({ message: "Electrodoméstico agregado correctamente " });
     })
     .catch((error) => {
       console.error("Error al crear el electrodoméstico:", error);
