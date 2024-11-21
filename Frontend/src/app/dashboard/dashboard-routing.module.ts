@@ -14,6 +14,7 @@ import { CreateUsuariosComponent } from '../create-usuarios/create-usuarios.comp
 import { CreateElectrodomesticosComponent } from '../create-electrodomesticos/create-electrodomesticos.component';
 import { CreateConsumoComponent } from '../create-consumo/create-consumo.component';
 import { LoginGuard } from '../guards/login/login.guard';
+import { RolGuard } from '../guards/rol/rol.guard';
 
 
 const routes: Routes = [
@@ -22,30 +23,30 @@ const routes: Routes = [
     children: [
       {
         path: 'usuarios',
-        component: UsuariosComponent,canActivate:[LoginGuard],
+        component: UsuariosComponent,
         data: {
-          title: 'Usuarios'
-        }
+          title: 'Usuarios', expectedRole: 'admin'
+        }, canActivate: [RolGuard]
       },
 
       {
         path: 'create-usuarios',
-        component: CreateUsuariosComponent,canActivate:[LoginGuard],
+        component: CreateUsuariosComponent, 
         data: {
-          title: 'Create-Usuarios'
-        }
+          title: 'Create-Usuarios', expectedRole: 'admin'
+        }, canActivate: [RolGuard]
       },
 
       {
         path: 'electrodomesticos',
-        component: ElectrodomesticosComponent,canActivate:[LoginGuard],
+        component: ElectrodomesticosComponent, canActivate: [LoginGuard],
         data: {
           title: 'Electrodomesticos'
         }
       },
       {
         path: 'create-electrodomesticos',
-        component: CreateElectrodomesticosComponent,canActivate:[LoginGuard],
+        component: CreateElectrodomesticosComponent, canActivate: [LoginGuard],
         data: {
           title: 'Create-Electrodomesticos'
         }
@@ -53,7 +54,7 @@ const routes: Routes = [
 
       {
         path: 'consumo',
-        component: ConsumoComponent,canActivate:[LoginGuard],
+        component: ConsumoComponent, canActivate: [LoginGuard],
         data: {
           title: 'Consumo'
         }
@@ -61,50 +62,50 @@ const routes: Routes = [
 
       {
         path: 'create-consumo',
-        component: CreateConsumoComponent,canActivate:[LoginGuard],
+        component: CreateConsumoComponent, canActivate: [LoginGuard],
         data: {
           title: 'Create-Consumo'
         }
       },
       {
         path: 'reporte',
-        component: ReporteComponent,canActivate:[LoginGuard],
+        component: ReporteComponent, canActivate: [LoginGuard],
         data: {
           title: 'Reporte'
         }
       },
-    
+
       {
         path: 'default',
-        component: DefaultComponent,canActivate:[LoginGuard],
+        component: DefaultComponent, canActivate: [LoginGuard],
         data: {
           title: 'Default'
         }
       },
       {
         path: 'e-commerce',
-        component: ECommerceComponent,canActivate:[LoginGuard],
+        component: ECommerceComponent, canActivate: [LoginGuard],
         data: {
           title: 'e-Commerce'
         }
       },
       {
         path: 'analytics',
-        component: AnalyticsComponent,canActivate:[LoginGuard],
+        component: AnalyticsComponent, canActivate: [LoginGuard],
         data: {
           title: 'Analytics'
         }
       },
       {
         path: 'digital-marketing',
-        component: DigitalMarketingComponent,canActivate:[LoginGuard],
+        component: DigitalMarketingComponent, canActivate: [LoginGuard],
         data: {
           title: 'Digital Marketing'
         }
       },
       {
         path: 'human-resources',
-        component: HumanResourcesComponent,canActivate:[LoginGuard],
+        component: HumanResourcesComponent, canActivate: [LoginGuard],
         data: {
           title: 'Human Resources'
         }

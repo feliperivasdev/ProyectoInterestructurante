@@ -5,50 +5,38 @@ import { SidebarService } from "./sidebar.service";
 
 import * as $ from 'jquery';
 
-
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
 })
-
 export class SidebarComponent implements OnInit {
-    
-    public menuItems: any[];
+    public menuItems: any[]; // Menú filtrado para la vista
+    public userRole: string | null = null; // Rol del usuario
 
-  
-    constructor( public sidebarservice: SidebarService,private router: Router) {
-
-        router.events.subscribe( (event: Event) => {
-
+    constructor(public sidebarservice: SidebarService, private router: Router) {
+        router.events.subscribe((event: Event) => {
             if (event instanceof NavigationStart) {
-                // Show loading indicator
+                // Mostrar indicador de carga
             }
 
-            if (event instanceof NavigationEnd && $(window).width() < 1025 && ( document.readyState == 'complete' || false ) ) {
-
+            if (event instanceof NavigationEnd && $(window).width() < 1025 && (document.readyState === 'complete' || false)) {
                 this.toggleSidebar();
-                // Hide loading indicator
-               
+                // Ocultar indicador de carga
             }
 
             if (event instanceof NavigationError) {
-                // Hide loading indicator
-
-                // Present error to user
-                console.log(event.error);
+                // Ocultar indicador de carga
+                console.error(event.error);
             }
         });
-
     }
 
-        
     toggleSidebar() {
         this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
-        
+
         if ($(".wrapper").hasClass("nav-collapsed")) {
-            // unpin sidebar when hovered
             $(".wrapper").removeClass("nav-collapsed");
-            $(".sidebar-wrapper").unbind( "hover");
+            $(".sidebar-wrapper").unbind("hover");
         } else {
             $(".wrapper").addClass("nav-collapsed");
             $(".sidebar-wrapper").hover(
@@ -58,10 +46,8 @@ export class SidebarComponent implements OnInit {
                 function () {
                     $(".wrapper").removeClass("sidebar-hovered");
                 }
-            )
-      
+            );
         }
-
     }
 
     getSideBarState() {
@@ -71,12 +57,19 @@ export class SidebarComponent implements OnInit {
     hideSidebar() {
         this.sidebarservice.setSidebarState(true);
     }
-    
 
     ngOnInit() {
-        this.menuItems = ROUTES.filter(menuItem => menuItem);
+        // Obtener el rol del usuario desde localStorage
+        this.userRole = localStorage.getItem('rol');
+
+        // Filtrar los elementos del menú según el rol
+        this.menuItems = ROUTES.filter(menuItem => {
+            if (menuItem.title === 'Usuarios') {
+                return this.userRole === 'admin'; // Mostrar solo si el rol es admin
+            }
+            return true; // Mostrar todos los demás elementos
+        });
+
         $.getScript('./assets/js/app-sidebar.js');
-
     }
-
 }

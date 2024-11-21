@@ -95,8 +95,9 @@ module.exports = (sequelize) => {
 
   ElectrodomesticosModel.associate = function (models) {
 
-    ElectrodomesticosModel.hasOne(models.Registro_consumo_model, {
-      foreignKey: 'id_electrodomestico'
+    ElectrodomesticosModel.hasMany(models.Registro_consumo_model, {
+      foreignKey: 'id_electrodomestico',
+      as :'consumo'
     });
 
     ElectrodomesticosModel.belongsTo(models.Usuarios_model, {

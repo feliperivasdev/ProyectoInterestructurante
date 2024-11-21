@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsumoService } from '../services/consumo.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-consumo',
@@ -18,7 +19,18 @@ export class ConsumoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cs.getConsumo().subscribe({
+    const rol  = localStorage.getItem('rol');
+    let consumosObservable : Observable<any>
+
+    if(rol === 'admin') {
+      consumosObservable = this.cs.getConsumo();
+    } else if(rol === 'usuario') {
+      consumosObservable = this.cs.getConsumoByUserId();
+    }else{
+      console.error('Rol de usuario no es correcto');
+    }
+
+    consumosObservable.subscribe({
       next: (data) => {
         this.consumo = data;
         console.log(data);
@@ -26,7 +38,7 @@ export class ConsumoComponent implements OnInit {
       error: (err) => {
         console.error('Error al obtener los datos de consumo:', err);
       }
-    });
+    })
   }
 
   notificar(): string {

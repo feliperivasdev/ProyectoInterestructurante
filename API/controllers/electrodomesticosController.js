@@ -1,4 +1,5 @@
 const electrodomesticos = require("../models").Electrodomesticos_model;
+const usuarios = require("../models").Usuarios_model;
 
 module.exports = {
   list(req, res) {
@@ -25,24 +26,42 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  createElectrodomestico(req, res) {
-  const { nombre, marca, modelo, potencia_nominal, id_usuario } = req.body;
+  getElectrodomesticoByUserId(req, res) {
+    const id_usuario = req.params.id;
+    return electrodomesticos.findAll({
+      where: { id_usuario }
+    })
+      .then((electrodomesticos) => {
+        if (!electrodomesticos || !electrodomesticos.length === 0) {
+          return res.status(404).send({ message: "Electrodomésticos no encontrados para el usuario" });
+        }
+        return res.status(200).send(electrodomesticos);
+      })
+      .catch((err) => {
+        res.status(400).send({ message: "Error al buscar electrodomésticos por usuario", error: err.message });
+      })
+  },
 
-  electrodomesticos.create({
+  createElectrodomestico(req, res) {
+    const { nombre, marca, modelo, potencia_nominal, id_usuario, tiempo, consumo_categoria } = req.body;
+
+    electrodomesticos.create({
       nombre,
       marca,
       modelo,
       potencia_nominal,
-      id_usuario
+      id_usuario,
+      tiempo,
+      consumo_categoria,
     })
-    .then(() => {
-      res.status(201).send({ message: "Electrodoméstico agregado correctamente " });
-    })
-    .catch((error) => {
-      console.error("Error al crear el electrodoméstico:", error);
-      res.status(400).send({ message: "Error al crear el electrodoméstico", error: error.message });
-    });
-},
+      .then(() => {
+        res.status(201).send({ message: "Electrodoméstico agregado correctamente " });
+      })
+      .catch((error) => {
+        console.error("Error al crear el electrodoméstico:", error);
+        res.status(400).send({ message: "Error al crear el electrodoméstico", error: error.message });
+      });
+  },
 
 
   updateElectrodomestico(req, res) {

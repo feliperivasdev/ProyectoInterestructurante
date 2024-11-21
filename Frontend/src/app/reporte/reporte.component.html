@@ -14,13 +14,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let pry of reporte">
-                    <th scope="row">{{pry.id}}</th>
-                    <td>{{pry.periodo_inicio}}</td>
-                    <td>{{pry.periodo_fin}}</td>
-                    <td>{{pry.consumo_total}}</td>
-                    <td>{{pry.consumo_maximo}}</td>
-                    <td>{{pry.id_usuario}}</td>
+                <tr *ngFor="let rp of reporte">
+                    <th scope="row">{{rp.id}}</th>
+                    <td>{{rp.periodo_inicio}}</td>
+                    <td>{{rp.periodo_fin}}</td>
+                    <td>{{rp.consumo_total}} kWh</td>
+                    <td>{{rp.consumo_maximo}} kWh</td>
+                    <td>{{rp.id_usuario}}</td>
                     <td>
                         <a role="button" (click)="confirmaEliminarReporte(pry.id)" class="lni lni-trash"></a>
 
@@ -31,3 +31,22 @@
         </table>
     </div>
 </div>
+
+<div>
+    <label for="fechaInicio">Fecha de inicio:</label>
+    <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio" />
+  
+    <label for="fechaFin">Fecha de fin:</label>
+    <input type="date" id="fechaFin" [(ngModel)]="fechaFin" />
+  
+    <button (click)="generarReporte()">Generar Reporte</button>
+  </div>
+  
+  <div *ngIf="reporte">
+    <h3>Reporte Generado:</h3>
+    <p><strong>Periodo de inicio:</strong> {{ reporte.periodoInicio }}</p>
+    <p><strong>Periodo de fin:</strong> {{ reporte.periodoFin }}</p>
+    <p><strong>Consumo total:</strong> {{ reporte.consumoTotal }} kWh</p>
+    <p><strong>Consumo máximo:</strong> {{ reporte.consumoMaximo }} kWh</p>
+  </div>
+  

@@ -1,37 +1,49 @@
-<h6 class="mb-0 text-uppercase">Crear Electrodomestico</h6>
-<hr/>
+<h6 class="mb-0 text-uppercase">Crear Electrodoméstico</h6>
+<hr />
 <div class="card">
-    <div class="card-body">
-        <form [formGroup]="electrodomesticos" (submit)="save()">
+  <div class="card-body">
+    <form [formGroup]="electrodomesticos" (ngSubmit)="save()">
 
-            <div class="mb-3">
-                <label class="form-label">Nombre:</label>
-                <input type="text" class="form-control" formControlName="nombre" id="nombre">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Marca:</label>
-                <input type="text" class="form-control" formControlName="marca" id="marca">
-            </div>
+      <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input type="text" class="form-control" formControlName="nombre" id="nombre">
+      </div>
 
-            <div class="mb-3">
-                <label class="form-label">Modelo:</label>
-                <input type="text" class="form-control" formControlName="modelo" id="modelo">
-            </div>
+      <div class="mb-3">
+        <label class="form-label">Marca:</label>
+        <input type="text" class="form-control" formControlName="marca" id="marca">
+      </div>
 
-            <div class="mb-3">
-                <label class="form-label">Potencia:</label>
-                <input type="text" class="form-control" formControlName="potencia_nominal" id="potencia_nominal">
-            </div>         
-            <div class="mb-3">
-                <label class="form-label">Id usuario:</label>
-                <select class="form-control" formControlName="id_usuario" id="id_usuario">
-                    <option *ngFor="let usuarios of usuarios" [value]="usuarios.id">{{ usuarios.nombre }}</option>
-                </select>
-            </div>
+      <div class="mb-3">
+        <label class="form-label">Modelo:</label>
+        <input type="text" class="form-control" formControlName="modelo" id="modelo">
+      </div>
 
-            <button [disabled]="electrodomesticos.invalid" type="submit" class="btn btn-primary px-5">
-                Guardar
-            </button>
-        </form>
-    </div>
+      <div class="mb-3">
+        <label class="form-label">Potencia Nominal:</label>
+        <input type="text" class="form-control" formControlName="potencia_nominal" id="potencia_nominal">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Id Usuario:</label>
+        <select class="form-control" formControlName="id_usuario" id="id_usuario">
+          <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{ usuario.nombre }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Tiempo (Horas):</label>
+        <input type="text" class="form-control" formControlName="tiempo" id="tiempo">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nivel de Consumo (Alto, Medio, Bajo):</label>
+        <input type="text" class="form-control" formControlName="consumo_categoria" id="consumo_categoria">
+      </div>
+
+      <button [disabled]="electrodomesticos.invalid" type="submit" class="btn btn-primary px-5">
+        Guardar
+      </button>
+    </form>
+  </div>
 </div>

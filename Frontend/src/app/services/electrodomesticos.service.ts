@@ -25,6 +25,15 @@ export class ElectrodomesticosService {
     //http://localhost:3000/electrodomesticos/:id
     return this.http.get(ruta);
   }
+
+  getElectrodomesticosByUserId(): Observable<any> {
+    const id_usuario = localStorage.getItem('id');
+    if (!id_usuario) {
+      throw new Error('id de usuario no encontrado');
+    }
+    let ruta = [environment.apiUrl, 'electrodomesticos', 'usuarios', id_usuario].join('/');
+    return this.http.get(ruta)
+  }
   getUsuarios(): Observable<any> {
     let route = [environment.apiUrl, 'usuarios'].join('/');
     return this.http.get(route);

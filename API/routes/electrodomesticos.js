@@ -7,6 +7,8 @@ router.get("/", electrodomesticosController.list);
 
 router.get("/:id", electrodomesticosController.getById);
 
+router.get("/usuarios/:id", electrodomesticosController.getElectrodomesticoByUserId);
+
 router.post("/", electrodomesticosController.createElectrodomestico);
 
 router.put("/:id", electrodomesticosController.updateElectrodomestico);

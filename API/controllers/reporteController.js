@@ -1,4 +1,5 @@
 const reporte = require("../models").Reporte_model;
+const usuarios = require("../models").Usuarios_model;
 
 module.exports = {
   list(req, res) {
@@ -23,6 +24,23 @@ module.exports = {
         return res.status(200).send(reporte);
       })
       .catch((error) => res.status(400).send(error));
+  },
+  getReporteByUserId(req, res) {
+    const  id_usuario = req.params.id;
+    return reporte.findAll({
+      where: {
+        id_usuario,
+      }
+    })
+    .then((reportes)=>{
+      if (!reportes ||!reportes.length === 0) {
+        return res.status(404).send({ message: "Reporte(s) no encontrado(s) para el usuario" });
+      }
+      return res.status(200).send(reportes);
+    })
+    .catch((error)=>{
+      res.status(400).send(error);
+    })
   },
   createReporte(req, res) {
     const {

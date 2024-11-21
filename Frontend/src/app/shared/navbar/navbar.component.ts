@@ -13,6 +13,10 @@ export class NavbarComponent implements OnInit{
 
     constructor(public sidebarservice: SidebarService, public authService:AuthService) { }
     nombreUsuario = localStorage.getItem('nombre')
+    userRole = localStorage.getItem('rol');
+    displayRol: string;
+
+    
     toggleSidebar() {
         this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
     }
@@ -29,6 +33,12 @@ export class NavbarComponent implements OnInit{
         this.authService.logout();
     }
     ngOnInit() {
+
+        if (this.userRole === 'admin') {
+            this.displayRol = 'Administrador';
+        } else if (this.userRole === 'usuario') {
+            this.displayRol = 'Usuario';
+        }
 
         /* Search Bar */
         $(document).ready(function () {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ElectrodomesticosService } from '../services/electrodomesticos.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-electrodomesticos',
@@ -17,13 +18,29 @@ export class ElectrodomesticosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.es.getElectrodomesticos().subscribe({
+    this.cargarElectrodomestico();
+  }
+
+  cargarElectrodomestico():void{
+    const rol = localStorage.getItem('rol');
+    let electrodomesticosObservable : Observable<any>;
+    if (rol === 'admin') {
+      electrodomesticosObservable = this.es.getElectrodomesticos();
+    } else if (rol === 'usuario') {
+      electrodomesticosObservable = this.es.getElectrodomesticosByUserId();
+    }else{
+      console.error('Rol no encontrado')
+      return;
+    }
+
+    electrodomesticosObservable.subscribe({
       next: (data) => {
         this.electrodomesticos = data;
         console.log(data);
       },
-      error: (err) => console.error(err)
-    });
+      error: (err) => console.error('Error al cargar los electrodomesticos',err)
+    })
+    
   }
 
   nuevoElectrodomestico(): void {

@@ -10,28 +10,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-electrodomesticos.component.scss']
 })
 export class CreateElectrodomesticosComponent implements OnInit {
- 
+
   public electrodomesticos: FormGroup;
   public usuarios: any[] = [];
-
+  public id_user: string
 
   constructor(
     private formBuilder: FormBuilder,
     private electrodomesticosService: ElectrodomesticosService,
     private router: Router
+
   ) { }
 
   ngOnInit(): void {
-
+    this.id_user = localStorage.getItem('id');
     this.electrodomesticos = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       marca: ['', [Validators.required]],
       modelo: ['', [Validators.required]],
       potencia_nominal: ['', [Validators.required]],
-      id_usuario: ['', [Validators.required]]
+      id_usuario: this.id_user,
+      tiempo: ['', [Validators.required]],
+      consumo_categoria: ['', [Validators.required]],
 
-  });
-  this.Usuarios();
+    });
+    this.Usuarios();
   }
 
   Usuarios(): void {
@@ -47,7 +50,7 @@ export class CreateElectrodomesticosComponent implements OnInit {
 
   }
 
- 
+
   save(): void {
     console.log('Formulario enviado', this.electrodomesticos.value);
     if (this.electrodomesticos.valid) {
