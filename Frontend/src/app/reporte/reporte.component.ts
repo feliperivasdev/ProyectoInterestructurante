@@ -74,7 +74,7 @@ export class ReporteComponent implements OnInit {
         // Calcular el periodo de inicio y fin
         const fechas = data.map((item: any) => new Date(item.tiempo_consumo));
         const fechaInicio = new Date(Math.min(...fechas));
-        const fechaFin = new Date(Math.max(...fechas));
+        const fechaFin = this.fechaFin;
 
         // Calcular consumo total
         const consumoTotal = data.reduce((total: number, item: any) => total + item.consumo_energia, 0);
@@ -85,7 +85,7 @@ export class ReporteComponent implements OnInit {
         // Asignar los valores calculados
         this.reporte = {
           periodo_inicio: fechaInicio.toISOString().split('T')[0], // Formato YYYY-MM-DD
-          periodo_fin: fechaFin.toISOString().split('T')[0], // Formato YYYY-MM-DD
+          periodo_fin: fechaFin.toString().split('T')[0], // Formato YYYY-MM-DD
           consumo_total: consumoTotal.toFixed(2), // Limitar a dos decimales
           consumo_maximo: consumoMaximo.toFixed(2),// Limitar a dos decimales
           id_usuario: localStorage.getItem('id') 
